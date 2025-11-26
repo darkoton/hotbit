@@ -1,0 +1,56 @@
+.container {
+    overflow: hidden;
+}
+
+.body {
+    padding: 22px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.slider {
+    width: 100%;
+    overflow: visible;
+}
+
+.slide {
+    height: auto;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    background: $bg-secondary;
+    height: 100%;
+    padding: 0 5px;
+}
+
+.img {
+    width: 100%;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+}
+
+.bullet {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: $bg-secondary;
+    transition: all 0.3s ease 0s;
+
+    &.active {
+        background-color: $accent;
+    }
+}

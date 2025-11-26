@@ -4,6 +4,8 @@ import Banner from './components/Banner/index.vue';
 import Wins from './components/Wins/index.vue';
 import Popular from './components/Popular/index.vue';
 import Catalog from './components/Catalog/index.vue';
+import Studios from './components/Studios/index.vue';
+import Recently from './components/Recently/index.vue';
 </script>
 
 <template>
@@ -12,4 +14,6 @@ import Catalog from './components/Catalog/index.vue';
   <Wins />
   <Popular />
   <Catalog />
+  <Studios />
+  <Recently />
 </template>

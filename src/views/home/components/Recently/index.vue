@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import styles from './style.module.scss';
 import Container from '@components/layouts/Container.vue';
-import Crown from '@components/icons/Crown.vue';
+import New from '@components/icons/New.vue';
 import Button from '@components/ui/Button/index.vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import Game from '@components/ui/Game/index.vue';
@@ -40,8 +40,8 @@ const games: GameCardType[] = [
     <div :class="styles.body">
       <div :class="styles.head">
         <h2 class="title-section">
-          <Crown class="title-icon" />
-          Popular Slots
+          <New class="title-icon" />
+          Recently Added
         </h2>
 
         <Button>View All</Button>

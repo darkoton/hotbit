@@ -108,7 +108,11 @@ const feeds: GameCardType[][] = [
           space-between="12"
           :grab-cursor="true"
         >
-          <swiper-slide :class="styles.slide" v-for="game in feed" :key="game.img">
+          <swiper-slide
+            :class="styles.slide"
+            v-for="game in feed"
+            :key="game.img"
+          >
             <Game v-bind="game" />
           </swiper-slide>
         </swiper>
