@@ -3,14 +3,9 @@ import styles from './style.module.scss';
 import Cup from '@components/icons/Cup.vue';
 import CrownStar from '@components/icons/CrownStar.vue';
 
-defineProps<{
-  img: string;
-  maxWin?: string;
-  player?: {
-    name: string;
-    money: string;
-  };
-}>();
+import type { GameCardType } from '@types/game.type';
+
+defineProps<GameCardType>();
 
 defineEmits(['click']);
 </script>

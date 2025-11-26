@@ -25,7 +25,8 @@ export default defineConfig(({ mode }) => {
         '@stores': fileURLToPath(new URL('./src/stores', import.meta.url)),
         '@assets': fileURLToPath(new URL('./src/assets', import.meta.url)),
         '@views': fileURLToPath(new URL('./src/views', import.meta.url)),
-        '@configs': fileURLToPath(new URL('./src/configs', import.meta.url))
+        '@configs': fileURLToPath(new URL('./src/configs', import.meta.url)),
+        '@types': fileURLToPath(new URL('./src/typess', import.meta.url))
       },
     },
     css: {

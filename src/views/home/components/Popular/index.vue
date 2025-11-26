@@ -9,20 +9,26 @@ import Game from '@components/ui/Game/index.vue';
 // @ts-ignore
 import 'swiper/css';
 
-const games = [
+import type { GameCardType } from '@types/game.type';
+
+const games: GameCardType[] = [
   {
+    title: 'rip',
     img: '/imgs/games/rip.png',
     maxWin: '5 000x',
   },
   {
+    title: 'outsourced',
     img: '/imgs/games/outsourced.png',
     maxWin: '5 000x',
   },
   {
+    title: 'gates of olympus',
     img: '/imgs/games/gates-of-olympus.png',
     maxWin: '5 000x',
   },
   {
+    title: 'wanted',
     img: '/imgs/games/wanted.png',
     maxWin: '5 000x',
   },
@@ -43,7 +49,7 @@ const games = [
 
       <swiper :class="styles.slider" :slides-per-view="3" space-between="12" :grab-cursor="true">
         <swiper-slide :class="styles.slide" v-for="game in games" :key="game.img">
-          <Game :img="game.img" :max-win="game.maxWin" />
+          <Game v-bind="game" />
         </swiper-slide>
       </swiper>
     </div>
