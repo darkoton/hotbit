@@ -9,17 +9,15 @@ import 'swiper/css';
 </script>
 
 <template>
-  <div :class="styles.wins">
-    <Container>
-      <div :class="styles.body">
-        <h2 :class="[styles.title, 'text-h2']">Live Wins</h2>
+  <Container>
+    <div :class="styles.body">
+      <h2 :class="[styles.title, 'text-h2', 'title-section']">Live Wins</h2>
 
-        <swiper :class="styles.slider" slides-per-view="auto" space-between="8" :grab-cursor="true">
-          <swiper-slide :class="styles.slide" v-for="i in 8" :key="i">
-            <Card img="/imgs/games/rip.png" money="$250.00" player="Pl*****23" />
-          </swiper-slide>
-        </swiper>
-      </div>
-    </Container>
-  </div>
+      <swiper :class="styles.slider" slides-per-view="auto" space-between="8" :grab-cursor="true">
+        <swiper-slide :class="styles.slide" v-for="i in 8" :key="i">
+          <Card img="/imgs/games/rip.png" money="$250.00" player="Pl*****23" />
+        </swiper-slide>
+      </swiper>
+    </div>
+  </Container>
 </template>

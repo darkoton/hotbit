@@ -25,29 +25,27 @@ function renderPagination(swiper: SwiperType, current: number, total: number): s
 </script>
 
 <template>
-  <div :class="styles.banner">
-    <Container>
-      <div :class="styles.body">
-        <swiper
-          :modules="modules"
-          :grab-cursor="true"
-          :class="styles.slider"
-          :slides-per-view="1"
-          :space-between="32"
-          :pagination="{
-            el: pagination,
-            type: 'custom',
-            renderCustom: renderPagination,
-            clickable: true,
-          }"
-        >
-          <swiper-slide v-for="i in 3" :key="i">
-            <img :class="styles.img" width="370" height="232" :src="bannerImg" alt="banner" />
-          </swiper-slide>
-        </swiper>
+  <Container>
+    <div :class="styles.body">
+      <swiper
+        :modules="modules"
+        :grab-cursor="true"
+        :class="styles.slider"
+        :slides-per-view="1"
+        :space-between="32"
+        :pagination="{
+          el: pagination,
+          type: 'custom',
+          renderCustom: renderPagination,
+          clickable: true,
+        }"
+      >
+        <swiper-slide v-for="i in 3" :key="i">
+          <img :class="styles.img" width="370" height="232" :src="bannerImg" alt="banner" />
+        </swiper-slide>
+      </swiper>
 
-        <div :class="styles.pagination" ref="pagination"></div>
-      </div>
-    </Container>
-  </div>
+      <div :class="styles.pagination" ref="pagination"></div>
+    </div>
+  </Container>
 </template>
