@@ -13,7 +13,7 @@
       "@assets/*": ["./src/assets/*"],
       "@views/*": ["./src/views/*"],
       "@configs/*": ["./src/configs/*"],
-      "@types/*": ["./src/types/*"],
+      "@interfaces/*": ["./src/interfaces/*"],
       "@data/*": ["./src/data/*"]
     }
   }

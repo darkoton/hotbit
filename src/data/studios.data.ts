@@ -1,4 +1,4 @@
-import type { StudioCardType } from '@/types/studios.type'
+import type { StudioCardType } from '@interfaces/studios.type'
 
 import pragmatic from '@assets/imgs/studios/pragmatic.png'
 import hacksaw from '@assets/imgs/studios/hacksaw.png'
