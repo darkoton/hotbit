@@ -2,15 +2,50 @@
 import styles from './style.module.scss';
 import Container from '@components/layouts/Container.vue';
 import Crown from '@components/icons/Crown.vue';
+import Button from '@components/ui/Button/index.vue';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import Game from '@components/ui/Game/index.vue';
+
+// @ts-ignore
+import 'swiper/css';
+
+const games = [
+  {
+    img: '/imgs/games/rip.png',
+    maxWin: '5 000x',
+  },
+  {
+    img: '/imgs/games/outsourced.png',
+    maxWin: '5 000x',
+  },
+  {
+    img: '/imgs/games/gates-of-olympus.png',
+    maxWin: '5 000x',
+  },
+  {
+    img: '/imgs/games/wanted.png',
+    maxWin: '5 000x',
+  },
+];
 </script>
 
 <template>
-  <Container>
+  <Container :class="styles.container">
     <div :class="styles.body">
-      <h2 class="title-section">
-        <Crown class="title-icon" />
-        Popular Slots
-      </h2>
+      <div :class="styles.head">
+        <h2 class="title-section">
+          <Crown class="title-icon" />
+          Popular Slots
+        </h2>
+
+        <Button>View All</Button>
+      </div>
+
+      <swiper :class="styles.slider" :slides-per-view="3" space-between="12" :grab-cursor="true">
+        <swiper-slide :class="styles.slide" v-for="game in games" :key="game.img">
+          <Game :img="game.img" :max-win="game.maxWin" />
+        </swiper-slide>
+      </swiper>
     </div>
   </Container>
 </template>

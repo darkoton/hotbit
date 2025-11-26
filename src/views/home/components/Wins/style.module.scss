@@ -15,6 +15,7 @@
     height: 16px;
     border-radius: 50%;
     background-color: $red;
+    animation: blink 0.6s ease 0s infinite alternate both;
   }
 }
 
@@ -25,4 +26,15 @@
 .slide {
   width: 58px;
   height: auto;
+}
+
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Component } from 'vue'
+import type { Component } from 'vue';
 import { ref, onMounted, onUnmounted } from 'vue';
 import BTC from '@/components/tokens/BTC.vue';
 import ArrowDown from '@components/icons/ArrowDown.vue';
@@ -7,25 +7,25 @@ import Wallet from '@components/icons/Wallet.vue';
 import { useClickOutside } from '@/composables/useClickOutside';
 
 type Item = {
-  value: string,
-  price: string,
-  name: string,
-  icon: Component
-}
+  value: string;
+  price: string;
+  name: string;
+  icon: Component;
+};
 
 const { value = 0, items = [] } = defineProps<{
-  value?: number
-  onSelect?: () => void
-  items?: Item[]
-}>()
+  value?: number;
+  items?: Item[];
+}>();
 
-const balance = ref<null | HTMLElement>(null)
-const open = ref(false)
+defineEmits(['select']);
 
+const balance = ref<null | HTMLElement>(null);
+const open = ref(false);
 
 useClickOutside(balance, () => {
-  open.value = false
-})
+  open.value = false;
+});
 </script>
 
 <template>
@@ -45,7 +45,7 @@ useClickOutside(balance, () => {
       </div>
       <div class="list">
         <div class="list__wrapper">
-          <button o class="item" v-for="(item, index) in items" :key="index">
+          <button @click="$emit('select')" class="item" v-for="(item, index) in items" :key="index">
             <div class="item__left">
               <span class="item__value text-body-bold">{{ item.value }}</span>
               <span class="item__price text-notification">{{ item.price }}</span>
@@ -62,7 +62,7 @@ useClickOutside(balance, () => {
   </div>
 </template>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .balance {
   position: relative;
   display: flex;
@@ -128,7 +128,6 @@ useClickOutside(balance, () => {
   margin-bottom: -6px;
   border-radius: 8px 8px 0 0;
   border: 1px solid rgba($white, 0.8);
-
 }
 
 .title {
@@ -142,12 +141,10 @@ useClickOutside(balance, () => {
   padding: 8px 12px;
   padding-left: 0px;
 
-
-
   &__wrapper {
     max-height: 240px;
     overflow: auto;
-    @include scrollbars(2px, $accent, #D9D9D9, 100px);
+    @include scrollbars(2px, $accent, #d9d9d9, 100px);
   }
 }
 
@@ -160,7 +157,7 @@ useClickOutside(balance, () => {
   position: relative;
   background-color: $white;
 
-  @media (any-hover:hover) {
+  @media (any-hover: hover) {
     cursor: pointer;
     transition: all 0.3s ease 0s;
 

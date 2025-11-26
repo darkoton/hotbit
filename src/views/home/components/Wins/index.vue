@@ -11,7 +11,7 @@ import 'swiper/css';
 <template>
   <Container>
     <div :class="styles.body">
-      <h2 :class="[styles.title, 'text-h2', 'title-section']">Live Wins</h2>
+      <h2 :class="[styles.title, 'title-section']">Live Wins</h2>
 
       <swiper :class="styles.slider" slides-per-view="auto" space-between="8" :grab-cursor="true">
         <swiper-slide :class="styles.slide" v-for="i in 8" :key="i">
