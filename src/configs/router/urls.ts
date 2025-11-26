@@ -1,3 +1,6 @@
 export const urls = {
-  home: '/'
+  home: '/',
+  quest: '/quest',
+  game: '/game',
+  rewards: '/rewards'
 }

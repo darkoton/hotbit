@@ -1,3 +1,7 @@
+.container {
+  overflow: hidden;
+}
+
 .body {
   padding: 22px 0;
   display: flex;
@@ -21,6 +25,7 @@
 
 .slider {
   width: 100%;
+  overflow: visible;
 }
 
 .slide {

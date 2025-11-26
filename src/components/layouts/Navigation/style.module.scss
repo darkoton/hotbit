@@ -1,0 +1,46 @@
+.navigation {
+    position: sticky;
+    bottom: 16px;
+    z-index: 100;
+}
+
+.body {
+    background-color: rgba($bg-secondary, 0.7);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 60px 0 rgba(4, 16, 28, 0.7), inset 0 0 1px 0 rgba(119, 119, 119, 0.25);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.button {
+    font-size: 24px;
+    color: $white;
+    background-color: transparent;
+    border-radius: 24px;
+    padding: 4px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+
+    &[class*="router-link-active"] {
+        color: $accent;
+        background-color: $bg-popup;
+    }
+
+    @media (any-hover: hover) {
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+
+        &:hover {
+            color: $accent;
+            background-color: $bg-popup;
+        }
+    }
+}
