@@ -15,7 +15,7 @@ import type { Swiper as SwiperType } from 'swiper';
 const pagination = ref(null);
 const modules = [Pagination];
 
-function renderPagination(swiper: any, current: number, total: number): string {
+function renderPagination(swiper: SwiperType, current: number, total: number): string {
   let bullets = '';
   for (let i = 1; i <= total; i++) {
     bullets += `<span class="${styles.bullet} ${i === current ? styles.active : ''}"></span>`;
