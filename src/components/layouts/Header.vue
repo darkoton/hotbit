@@ -84,6 +84,10 @@ const balances = [
 </template>
 
 <style lang='scss' scoped>
+.header {
+  padding-bottom: 12px;
+}
+
 .body {
   padding: 16px;
   border-radius: 12px;

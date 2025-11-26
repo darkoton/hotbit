@@ -1,0 +1,35 @@
+.body {
+  padding: 12px 0 22px 0;
+}
+
+.slider {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.img {
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid $accent;
+
+  width: 100%;
+  object-fit: cover;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: $bg-secondary;
+  transition: all 0.3s ease 0s;
+
+  &.active {
+    background-color: $accent;
+  }
+}
