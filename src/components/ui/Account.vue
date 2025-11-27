@@ -1,29 +1,50 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import Avatar from '@components/ui/Avatar.vue';
 import ArrowDown from '@components/icons/ArrowDown.vue';
+import Profile from '@components/ui/modals/Profile/index.vue';
 
 const { progressValue = 0 } = defineProps<{
-  avatar?: string
-  progressValue?: number
-}>()
+  avatar?: string;
+  progressValue?: number;
+}>();
 
+const profileOpen = ref<boolean>(false);
+const profileButton = ref<HTMLElement | null>(
+  null
+);
 </script>
 
 <template>
-  <button class="account">
+  <button
+    class="account"
+    @click="profileOpen = true"
+    ref="profileButton"
+  >
     <div class="top">
       <Avatar :src="avatar" size="28px" />
 
-      <ArrowDown class="arrow" />
+      <ArrowDown
+        :class="[
+          'arrow',
+          profileOpen && 'rotate',
+        ]"
+      />
     </div>
 
     <div class="progress">
       <div class="bar"></div>
     </div>
   </button>
+
+  <Profile
+    @close="profileOpen = false"
+    :show="profileOpen"
+    :open-button="profileButton"
+  />
 </template>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .account {
   display: flex;
   flex-direction: column;
@@ -40,6 +61,11 @@ const { progressValue = 0 } = defineProps<{
 .arrow {
   font-size: 24px;
   color: $accent;
+  transition: all 0.3s ease 0s;
+
+  &.rotate {
+    transform: scaleY(-1);
+  }
 }
 
 .progress {

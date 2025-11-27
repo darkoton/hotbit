@@ -1,16 +1,16 @@
 .header {
-    position: sticky;
-    top: 8px;
-    z-index: 100;
-    margin-bottom: 12px;
+  position: sticky;
+  top: 8px;
+  z-index: 50;
+  margin-bottom: 12px;
 }
 
 .body {
-    padding: 16px;
-    border-radius: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba($bg-secondary, 0.7);
-    backdrop-filter: blur(8px);
+  padding: 16px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba($bg-secondary, 0.7);
+  backdrop-filter: blur(8px);
 }
