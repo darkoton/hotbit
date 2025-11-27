@@ -3,23 +3,24 @@
     style="min-width: 1em"
     width="1em"
     height="1em"
-    viewBox="0 0 24 24"
+    viewBox="0 0 16 16"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="M16 12.9V17.1C16 20.6 14.6 22 11.1 22H6.9C3.4 22 2 20.6 2 17.1V12.9C2 9.4 3.4 8 6.9 8H11.1C14.6 8 16 9.4 16 12.9Z"
+      d="M9.70001 14.4468C12.56 13.6935 14.6667 11.0935 14.6667 8.00016C14.6667 4.32016 11.7067 1.3335 8.00001 1.3335C3.55334 1.3335 1.33334 5.04016 1.33334 5.04016M1.33334 5.04016V2.00016M1.33334 5.04016H2.67334H4.29334"
       stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
-      d="M22 6.9V11.1C22 14.6 20.6 16 17.1 16H16V12.9C16 9.4 14.6 8 11.1 8H8V6.9C8 3.4 9.4 2 12.9 2H17.1C20.6 2 22 3.4 22 6.9Z"
+      d="M1.33334 8C1.33334 11.68 4.32001 14.6667 8.00001 14.6667"
       stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
+      stroke-dasharray="3 3"
     />
   </svg>
 </template>

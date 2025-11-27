@@ -1,27 +1,53 @@
 .container {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .body {
-    padding: 22px 0px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  padding: 22px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  max-width: 100%;
+  overflow: hidden;
+  transition: all 0.3s ease 0s;
+
+  &.hidden {
+    max-width: 0%;
+  }
 }
 
 .feeds {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .slider {
-    width: 100%;
-    overflow: visible;
+  width: 100%;
+  overflow: visible;
+}
+
+.searchResult {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.recommends {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.recommendsTitle {
+  color: $grey-light;
 }

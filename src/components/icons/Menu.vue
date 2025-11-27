@@ -1,5 +1,12 @@
 <template>
-  <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    style="min-width: 1em"
+    width="1em"
+    height="1em"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <path
       d="M18.7199 3.18726H15.8399C14.7795 3.18726 13.9199 4.04687 13.9199 5.10726V7.98726C13.9199 9.04764 14.7795 9.90725 15.8399 9.90725H18.7199C19.7803 9.90725 20.6399 9.04764 20.6399 7.98726V5.10726C20.6399 4.04687 19.7803 3.18726 18.7199 3.18726Z"
       stroke="currentColor"
