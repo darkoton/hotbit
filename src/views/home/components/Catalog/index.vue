@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue';
 import styles from './style.module.scss';
 import Container from '@components/layouts/Container.vue';
-import Star from '@components/icons/Star.vue';
+import Star from '@/components/icons/StarRun.vue';
 import Search from '@components/ui/Search/index.vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import Game from '@components/ui/Game/index.vue';

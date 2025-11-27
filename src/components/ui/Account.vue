@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import Avatar from '@components/ui/Avatar.vue';
 import ArrowDown from '@components/icons/ArrowDown.vue';
 import Profile from '@components/ui/modals/Profile/index.vue';
+import { useScrollLock } from '@composables/useLockScroll';
 
 const { progressValue = 0 } = defineProps<{
   avatar?: string;
@@ -13,12 +14,24 @@ const profileOpen = ref<boolean>(false);
 const profileButton = ref<HTMLElement | null>(
   null
 );
+
+const lockScroll = useScrollLock();
+
+const openProfile = () => {
+  profileOpen.value = true;
+  lockScroll.value = true;
+};
+
+const closeProfile = () => {
+  profileOpen.value = false;
+  lockScroll.value = false;
+};
 </script>
 
 <template>
   <button
     class="account"
-    @click="profileOpen = true"
+    @click="openProfile"
     ref="profileButton"
   >
     <div class="top">
@@ -38,7 +51,7 @@ const profileButton = ref<HTMLElement | null>(
   </button>
 
   <Profile
-    @close="profileOpen = false"
+    @close="closeProfile"
     :show="profileOpen"
     :open-button="profileButton"
   />

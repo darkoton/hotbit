@@ -4,7 +4,7 @@ import { useClickOutside } from '@composables/useClickOutside';
 
 const { show, openButton } = defineProps<{
   show: boolean;
-  openButton: HTMLElement;
+  openButton: HTMLElement | null;
 }>();
 
 const emit = defineEmits(['close']);

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { type Ref } from 'vue';
 import styles from './style.module.scss';
 
 import ModalView from '../ModalView.vue';
@@ -18,7 +17,7 @@ import Message from '@components/icons/Message.vue';
 
 const { show, openButton } = defineProps<{
   show: boolean;
-  openButton: HTMLElement;
+  openButton: HTMLElement | null;
 }>();
 
 const items: {

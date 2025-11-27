@@ -1,0 +1,71 @@
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 60;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: flex-end;
+}
+
+.container {
+  overflow: auto;
+  padding: 0 16px 100px 16px !important;
+  background-color: $bg;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px 24px 0 0;
+  max-height: 95%;
+  transform: translateY(0%);
+}
+
+.visor {
+  width: 100%;
+  padding: 24px 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::after {
+    content: '';
+    width: 177px;
+    height: 4px;
+    border-radius: 24px;
+    background-color: $grey-light;
+  }
+}
+
+.title {
+  margin-bottom: 44px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(
+    3,
+    minmax(100px, 1fr)
+  );
+  gap: 12px;
+}
+
+:global(.slide-up-enter-from) .container {
+  transform: translateY(100%);
+}
+
+:global(.slide-up-enter-active) .container,
+:global(.slide-up-leave-active) .container {
+  transition: all 0.35s ease;
+}
+
+:global(.slide-up-enter-to) .container {
+  transform: translateY(0%);
+}
+
+:global(.slide-up-leave-to) .container {
+  transform: translateY(100%);
+}
