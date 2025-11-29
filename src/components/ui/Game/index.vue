@@ -3,7 +3,7 @@ import styles from './style.module.scss';
 import Cup from '@components/icons/Cup.vue';
 import CrownStar from '@components/icons/CrownStar.vue';
 
-import type { GameCardType } from '@interfaces/game.type.ts';
+import type { GameCardType } from '@interfaces/game.type';
 
 defineProps<GameCardType>();
 

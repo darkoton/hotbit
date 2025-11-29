@@ -9,38 +9,38 @@ import Plus18 from '@components/icons/18Plus.vue';
     <div :class="styles.body">
       <p :class="[styles.text, 'text-body-bold']">
         18+ only | Play Responsibly | <br />
-        <a
+        <router-link
           :class="[styles.link, styles.underline]"
-          href="#"
+          to="#"
         >
           Privacy Policy Terms & Conditions
-        </a>
+        </router-link>
         v1.2.0
       </p>
 
       <p :class="[styles.text, 'text-body-bold']">
         Support:
-        <a :class="styles.link" href="#">
+        <router-link :class="styles.link" to="#">
           support@hotbit.gg
-        </a>
+        </router-link>
         <br />
-        <a :class="styles.link" href="#">
+        <router-link :class="styles.link" to="#">
           @HotbitSupportBot
-        </a>
+        </router-link>
       </p>
 
-      <a
+      <router-link
         :class="[
           'text-body-bold',
           styles.link,
           styles.underline,
           styles.gambling,
         ]"
-        href="#"
+        to="#"
       >
         <Plus18 :class="styles.icon" />
         Responsible Gambling
-      </a>
+      </router-link>
     </div>
   </Container>
 </template>

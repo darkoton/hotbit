@@ -13,33 +13,33 @@ import Medal from '@components/icons/MedalStar.vue';
   <div :class="styles.navigation">
     <Container>
       <div :class="styles.body">
-        <a
+        <router-link
           :class="styles.button"
-          :href="urls.home"
+          :to="urls.home"
         >
           <House />
-        </a>
+        </router-link>
 
-        <a
+        <router-link
           :class="styles.button"
-          :href="urls.quest"
+          :to="urls.quest"
         >
           <Cup />
-        </a>
+        </router-link>
 
-        <a
+        <router-link
           :class="styles.button"
-          :href="urls.game"
+          :to="urls.game"
         >
           <Game />
-        </a>
+        </router-link>
 
-        <a
+        <router-link
           :class="styles.button"
-          :href="urls.rewards"
+          :to="urls.rewards"
         >
           <Medal />
-        </a>
+        </router-link>
       </div>
     </Container>
   </div>

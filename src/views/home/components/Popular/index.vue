@@ -12,7 +12,7 @@ import { useScrollLock } from '@composables/useLockScroll';
 // @ts-ignore
 import 'swiper/css';
 
-import type { GameCardType } from '@interfaces/game.type.ts';
+import type { GameCardType } from '@interfaces/game.type';
 
 const games: GameCardType[] = [
   {

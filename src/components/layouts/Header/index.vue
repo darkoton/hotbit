@@ -69,14 +69,14 @@ const balances = [
   <header :class="styles.header">
     <Container>
       <div :class="styles.body">
-        <a :href="urls.home">
+        <router-link :to="urls.home">
           <img
             width="60"
             height="25"
             :src="Logo"
             alt="Logo"
           />
-        </a>
+        </router-link>
 
         <BalanceSelect
           :value="35.32"
