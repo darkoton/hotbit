@@ -3,6 +3,8 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
+import { resolve } from 'path';
+
 
 
 // https://vite.dev/config/
@@ -17,6 +19,29 @@ export default defineConfig(({ mode }) => {
       vue(),
       vueDevTools(),
     ],
+     build: {
+      outDir: 'dist',
+      rollupOptions: {
+        input: {
+          styles: resolve(__dirname, 'src/entries/styles.js'),
+          header: resolve(__dirname, 'src/entries/header.js'),
+          banner: resolve(__dirname, 'src/entries/banner.js'),
+          wins: resolve(__dirname, 'src/entries/wins.js'),
+          popular: resolve(__dirname, 'src/entries/popular.js'),
+          catalog: resolve(__dirname, 'src/entries/catalog.js'),
+          studios: resolve(__dirname, 'src/entries/studios.js'),
+          recently: resolve(__dirname, 'src/entries/recently.js'),
+          info: resolve(__dirname, 'src/entries/info.js'),
+          navigation: resolve(__dirname, 'src/entries/navigation.js'),
+        },
+        output: {
+          entryFileNames: 'js/[name].js',
+          chunkFileNames: 'js/chunks/[name]-[hash].js',
+          assetFileNames: 'assets/[name].[ext]',
+        }
+      },
+      manifest: true,
+    },
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),

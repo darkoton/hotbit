@@ -17,11 +17,10 @@
   "dependencies": {
     "pinia": "^3.0.3",
     "swiper": "^12.0.3",
-    "vue": "^3.5.22",
-    "vue-router": "^4.6.3"
+    "vue": "^3.5.22"
   },
   "devDependencies": {
-    "@tsconfig/node22": "^22.0.2",
+    "@tsconfig/node22": "^22.0.5",
     "@types/node": "^22.18.11",
     "@types/swiper": "^5.4.3",
     "@vitejs/plugin-vue": "^6.0.1",
