@@ -52,7 +52,8 @@ export default defineConfig(({ mode }) => {
         '@views': fileURLToPath(new URL('./src/views', import.meta.url)),
         '@configs': fileURLToPath(new URL('./src/configs', import.meta.url)),
         '@interfaces': fileURLToPath(new URL('./src/interfaces', import.meta.url)),
-        '@data': fileURLToPath(new URL('./src/data', import.meta.url))
+        '@data': fileURLToPath(new URL('./src/data', import.meta.url)),
+        '@composables': fileURLToPath(new URL('./src/composables', import.meta.url))
       },
     },
     css: {

@@ -1,10 +1,13 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import styles from './style.module.scss';
 import Container from '@components/layouts/Container.vue';
 import Crown from '@components/icons/Crown.vue';
 import Button from '@components/ui/Button/index.vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import Game from '@components/ui/Game/index.vue';
+import Favorites from '@components/ui/modals/Favorites/index.vue';
+import { useScrollLock } from '@composables/useLockScroll';
 
 // @ts-ignore
 import 'swiper/css';
@@ -33,6 +36,22 @@ const games: GameCardType[] = [
     maxWin: '5 000x',
   },
 ];
+
+const lockScroll = useScrollLock();
+const favoritesButton = ref<HTMLElement | null>(
+  null
+);
+const favoritesOpen = ref<boolean>(false);
+
+const openFavorites = () => {
+  favoritesOpen.value = true;
+  lockScroll.value = true;
+};
+
+const closeFavorites = () => {
+  favoritesOpen.value = false;
+  lockScroll.value = false;
+};
 </script>
 
 <template>
@@ -44,7 +63,11 @@ const games: GameCardType[] = [
           Popular Slots
         </h2>
 
-        <Button>View All</Button>
+        <Button
+          @click="openFavorites"
+          ref="favoritesButton"
+          >View All</Button
+        >
       </div>
 
       <swiper
@@ -63,4 +86,10 @@ const games: GameCardType[] = [
       </swiper>
     </div>
   </Container>
+
+  <Favorites
+    @close="closeFavorites"
+    :show="favoritesOpen"
+    :open-button="favoritesButton"
+  />
 </template>

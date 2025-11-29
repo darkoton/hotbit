@@ -1,0 +1,14 @@
+.level {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background-color: $accent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &[disabled="true"] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
