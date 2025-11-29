@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// Home page
 import Header from '@/components/layouts/Header/index.vue';
 import Navigation from '@components/layouts/Navigation/index.vue';
 import Banner from './components/Banner/index.vue';
