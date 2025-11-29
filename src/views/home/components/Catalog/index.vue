@@ -10,7 +10,7 @@ import Game from '@components/ui/Game/index.vue';
 // @ts-ignore
 import 'swiper/css';
 
-import type { GameCardType } from '@interfaces/game.type';
+import type { GameCardType } from '@interfaces/game.type.ts';
 
 const feeds: GameCardType[][] = [
   [
