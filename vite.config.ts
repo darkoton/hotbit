@@ -19,11 +19,11 @@ export default defineConfig(({ mode }) => {
       vue(),
       vueDevTools(),
     ],
-     build: {
+    build: {
       outDir: 'dist',
       rollupOptions: {
         input: {
-          main: resolve(__dirname, 'index.html'), 
+          main: resolve(__dirname, 'index.html'),
           styles: resolve(__dirname, 'src/entries/styles.js'),
           header: resolve(__dirname, 'src/entries/header.js'),
           banner: resolve(__dirname, 'src/entries/banner.js'),
@@ -34,6 +34,9 @@ export default defineConfig(({ mode }) => {
           recently: resolve(__dirname, 'src/entries/recently.js'),
           info: resolve(__dirname, 'src/entries/info.js'),
           navigation: resolve(__dirname, 'src/entries/navigation.js'),
+          profileModal: resolve(__dirname, 'src/entries/profileModal.js'),
+          favoritesModal: resolve(__dirname, 'src/entries/favoritesModal.js'),
+          gameModal: resolve(__dirname, 'src/entries/gameModal.js'),
         },
         output: {
           entryFileNames: 'js/[name].js',

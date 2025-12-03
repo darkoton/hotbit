@@ -2,7 +2,7 @@
 import styles from './style.module.scss';
 
 const { value = 0 } = defineProps<{
-  value?: number;
+  value?: number | string;
 }>();
 </script>
 

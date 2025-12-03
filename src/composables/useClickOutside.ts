@@ -9,10 +9,10 @@ export function useClickOutside(
   elements:
     | Ref<HTMLElement | null>
     | Array<
-        | Ref<HTMLElement | null>
-        | HTMLElement
-        | null
-      >,
+      | Ref<HTMLElement | null>
+      | HTMLElement
+      | null
+    >,
   callback: () => void
 ) {
   function isOutside(
@@ -23,6 +23,9 @@ export function useClickOutside(
       | null
   ) {
     const node = isRef(el) ? el.value : el;
+
+
+
     return !node || !node.contains(target);
   }
 

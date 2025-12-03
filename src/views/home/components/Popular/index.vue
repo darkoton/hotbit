@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import Game from '@components/ui/Game/index.vue';
 import Favorites from '@components/ui/modals/Favorites/index.vue';
 import { useScrollLock } from '@composables/useLockScroll';
+import GameModal from '@components/ui/modals/Game/index.vue';
 
 // @ts-ignore
 import 'swiper/css';
@@ -52,6 +53,19 @@ const closeFavorites = () => {
   favoritesOpen.value = false;
   lockScroll.value = false;
 };
+
+const gameButton = ref<HTMLElement | null>(null);
+const gameOpen = ref<boolean>(false);
+
+const openGame = () => {
+  gameOpen.value = true;
+  lockScroll.value = true;
+};
+
+const closeGame = () => {
+  gameOpen.value = false;
+  lockScroll.value = false;
+};
 </script>
 
 <template>
@@ -77,6 +91,7 @@ const closeFavorites = () => {
         :grab-cursor="true"
       >
         <swiper-slide
+          @click="openGame"
           :class="styles.slide"
           v-for="game in games"
           :key="game.img"
@@ -91,5 +106,11 @@ const closeFavorites = () => {
     @close="closeFavorites"
     :show="favoritesOpen"
     :open-button="favoritesButton"
+  />
+
+  <GameModal
+    @close="closeGame"
+    :show="gameOpen"
+    :open-button="gameButton"
   />
 </template>
