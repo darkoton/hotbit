@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import GameModal from '@components/layouts/ui/modals/Game/index.vue';
+import GameModal from '@components/ui/modals/Game/index.vue';
 
 // Функция для инициализации
 export function init(selector = '#gameModal') {

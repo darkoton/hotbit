@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import ProfileModal from '@components/layouts/ui/modals/Profile/index.vue';
+import ProfileModal from '@components/ui/modals/Profile/index.vue';
 
 // Функция для инициализации
 export function init(selector = '#profileModal') {

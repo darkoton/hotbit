@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import FavoritesModal from '@components/layouts/ui/modals/Favorites/index.vue';
+import FavoritesModal from '@components/ui/modals/Favorites/index.vue';
 
 // Функция для инициализации
 export function init(selector = '#favoritesModal') {
