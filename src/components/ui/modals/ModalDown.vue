@@ -1,7 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import {
+  nextTick,
+  onMounted,
+  ref,
+  watch,
+} from 'vue';
 import Container from '@components/layouts/Container.vue';
-// import { useClickOutside } from '@composables/useClickOutside';
+import { useClickOutside } from '@composables/useClickOutside';
 
 const { show, openButton } = defineProps<{
   show: boolean;
@@ -11,47 +16,110 @@ const { show, openButton } = defineProps<{
 const emit = defineEmits(['close']);
 
 const bodyModal = ref<HTMLElement | null>(null);
-// useClickOutside([openButton, bodyModal], () => {
-//   emit('close');
-// });
+
+const startY = ref(0);
+const currentY = ref(0);
+const isDragging = ref(false);
+
+function startDrag(y: number) {
+  startY.value = y;
+  isDragging.value = true;
+}
+
+function moveDrag(y: number) {
+  if (!isDragging.value) return;
+  currentY.value = y;
+}
+
+function endDrag() {
+  if (!isDragging.value) return;
+  isDragging.value = false;
+
+  const diff = currentY.value - startY.value;
+
+  if (diff > 50) {
+    emit('close');
+    startY.value = 0;
+    currentY.value = 0;
+  }
+}
+
+// Touch events
+function onTouchStart(e: TouchEvent) {
+  startDrag(e.touches[0].clientY);
+}
+
+function onTouchMove(e: TouchEvent) {
+  moveDrag(e.touches[0].clientY);
+}
+
+function onTouchEnd() {
+  endDrag();
+}
+
+// Mouse events
+function onMouseDown(e: MouseEvent) {
+  startDrag(e.clientY);
+
+  // Ловим движение мыши глобально, чтобы не слетало
+  window.addEventListener(
+    'mousemove',
+    onMouseMove
+  );
+  window.addEventListener('mouseup', onMouseUp);
+}
+
+function onMouseMove(e: MouseEvent) {
+  moveDrag(e.clientY);
+}
+
+function onMouseUp() {
+  endDrag();
+
+  window.removeEventListener(
+    'mousemove',
+    onMouseMove
+  );
+  window.removeEventListener(
+    'mouseup',
+    onMouseUp
+  );
+}
 </script>
 
 <template>
   <Teleport to="body">
     <Transition name="slide-up">
-      <div class="modal" v-if="show">
-        <Container
-          ref="bodyModal"
-          class="container"
-        >
-          <div
-            class="visor"
-            @click="$emit('close')"
-          ></div>
+      <Container
+        ref="bodyModal"
+        class="container"
+        v-if="show"
+      >
+        <div
+          class="visor"
+          @touchstart="onTouchStart"
+          @touchmove="onTouchMove"
+          @touchend="onTouchEnd"
+          @mousedown="onMouseDown"
+        ></div>
 
-          <div class="body">
-            <slot />
-          </div>
-        </Container>
-      </div>
+        <div class="body">
+          <slot />
+        </div>
+      </Container>
+    </Transition>
+
+    <Transition name="fade">
+      <div
+        class="backward"
+        v-if="show"
+        @click="$emit('close')"
+      ></div>
     </Transition>
   </Teleport>
 </template>
 
 <style lang="scss" scoped>
-.modal {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  z-index: 60;
-  background-color: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(8px);
-  display: flex;
-  align-items: flex-end;
-}
-
 .container {
   padding: 0 16px 100px 16px !important;
   background-color: $bg;
@@ -61,6 +129,12 @@ const bodyModal = ref<HTMLElement | null>(null);
   border-radius: 24px 24px 0 0;
   max-height: 95%;
   transform: translateY(0%);
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  z-index: 60;
+  user-select: none;
+  transform: translate(-50%, 0%);
 }
 
 .visor {
@@ -92,20 +166,48 @@ const bodyModal = ref<HTMLElement | null>(null);
   );
 }
 
-.slide-up-enter-from .container {
-  transform: translateY(100%);
+.slide-up-enter-from {
+  transform: translate(-50%, 100%);
 }
 
-.slide-up-enter-active .container,
-.slide-up-leave-active .container {
+.slide-up-enter-active,
+.slide-up-leave-active {
   transition: all 0.35s ease;
 }
 
-.slide-up-enter-to .container {
-  transform: translateY(0%);
+.slide-up-enter-to {
+  transform: translate(-50%, 0%);
 }
 
-.slide-up-leave-to .container {
-  transform: translateY(100%);
+.slide-up-leave-to {
+  transform: translate(-50%, 100%);
+}
+
+.backward {
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  top: 0;
+  left: 0;
+}
+
+.fade-enter-from {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.35s ease;
+}
+
+.fade-enter-to {
+  opacity: 1;
+}
+
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
