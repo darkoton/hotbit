@@ -61,6 +61,24 @@ const items: {
       'Lucky77 and 3 others reacted on your Achievement',
     achieve: true,
   },
+  {
+    game: '/imgs/games/rip.png',
+    message:
+      'Lucky77 and 3 others reacted on your Achievement',
+    achieve: true,
+  },
+  {
+    game: '/imgs/games/rip.png',
+    message:
+      'Lucky77 and 3 others reacted on your Achievement',
+    achieve: true,
+  },
+  {
+    game: '/imgs/games/rip.png',
+    message:
+      'Lucky77 and 3 others reacted on your Achievement',
+    achieve: true,
+  },
 ];
 </script>
 
