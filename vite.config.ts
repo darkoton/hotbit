@@ -24,6 +24,7 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         input: {
           main: resolve(__dirname, 'index.html'),
+          affiliatesPage: resolve(__dirname, 'affiliates.html'),
           styles: resolve(__dirname, 'src/entries/styles.js'),
           header: resolve(__dirname, 'src/entries/header.js'),
           banner: resolve(__dirname, 'src/entries/banner.js'),
