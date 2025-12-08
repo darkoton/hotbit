@@ -1,0 +1,26 @@
+.tabs {
+  display: flex;
+  align-items: center;
+}
+
+.tab {
+  width: 100%;
+  padding-bottom: 6px;
+  border-bottom: 2px solid $grey;
+  color: $grey;
+  transition: all 0.3s ease 0s;
+
+  @media (any-hover: hover) {
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      color: $white;
+      border-color: $white;
+    }
+  }
+
+  &.active {
+    color: $white;
+    border-color: $white;
+  }
+}

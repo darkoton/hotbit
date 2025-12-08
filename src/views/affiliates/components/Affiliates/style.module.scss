@@ -1,0 +1,98 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  padding: 22px 0;
+}
+
+.title {
+  margin-bottom: 32px;
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+.fieldCopy {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 8px 12px;
+  background-color: $bg-popup;
+  border-radius: 8px;
+  margin-bottom: 32px;
+}
+
+.fieldCopyIcon {
+  font-size: 24px;
+  color: $accent;
+  @media (any-hover: hover) {
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.tabs {
+  margin-bottom: 20px;
+}
+
+.info {
+  border-radius: 12px;
+  background-color: $bg-secondary;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  margin-bottom: 20px;
+}
+
+.infoItem {
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  &:not(:last-child) {
+    padding-bottom: 15px;
+    border-bottom: 1px solid $grey-dark;
+  }
+}
+
+.calculation {
+  border-radius: 12px;
+  background-color: $bg-secondary;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 24px;
+}
+
+.calculationStats {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.calculationButton {
+  text-align: center;
+  justify-content: center;
+  min-height: 37px;
+}
+
+.calculationBottom {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.calculationFormula {
+  background-color: $bg-popup;
+  border-radius: 8px;
+  padding: 8px 12px;
+}

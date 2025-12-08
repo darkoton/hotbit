@@ -37,6 +37,7 @@ export default defineConfig(({ mode }) => {
           profileModal: resolve(__dirname, 'src/entries/profileModal.js'),
           favoritesModal: resolve(__dirname, 'src/entries/favoritesModal.js'),
           gameModal: resolve(__dirname, 'src/entries/gameModal.js'),
+          affiliates: resolve(__dirname, 'src/entries/affiliates.js'),
         },
         output: {
           entryFileNames: 'js/[name].js',

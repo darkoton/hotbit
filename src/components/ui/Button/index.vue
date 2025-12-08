@@ -2,7 +2,11 @@
 import styles from './style.module.scss';
 
 const { variant = 'primary' } = defineProps<{
-  variant?: 'primary' | 'secondary' | 'black';
+  variant?:
+    | 'primary'
+    | 'secondary'
+    | 'black'
+    | 'black-2';
 }>();
 
 defineEmits(['click']);

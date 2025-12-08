@@ -36,6 +36,16 @@
     }
   }
 
+  &.black-2 {
+    background-color: $bg;
+    color: $white;
+
+    &:disabled {
+      border-color: $grey-light;
+      color: $grey-light;
+    }
+  }
+
   &:not(:disabled) {
     @media (any-hover: hover) {
       cursor: pointer;
