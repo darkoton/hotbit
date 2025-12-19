@@ -7,6 +7,7 @@ import {
 } from 'vue';
 import Container from '@components/layouts/Container.vue';
 import { useClickOutside } from '@composables/useClickOutside';
+import { useScrollLock } from '@composables/useLockScroll';
 
 const { show, openButton } = defineProps<{
   show: boolean;
@@ -20,6 +21,15 @@ const bodyModal = ref<HTMLElement | null>(null);
 const startY = ref(0);
 const currentY = ref(0);
 const isDragging = ref(false);
+
+const isLocked = useScrollLock();
+
+watch(
+  () => show,
+  (v) => {
+    isLocked.value = v;
+  }
+);
 
 function startDrag(y: number) {
   startY.value = y;

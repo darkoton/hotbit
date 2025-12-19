@@ -8,35 +8,8 @@
   margin-bottom: 32px;
 }
 
-.link {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.copyField {
   margin-bottom: 20px;
-}
-
-.fieldCopy {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  width: 100%;
-  padding: 8px 12px;
-  background-color: $bg-popup;
-  border-radius: 8px;
-  margin-bottom: 32px;
-}
-
-.fieldCopyIcon {
-  font-size: 24px;
-  color: $accent;
-  @media (any-hover: hover) {
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-    &:hover {
-      opacity: 0.8;
-    }
-  }
 }
 
 .tabs {

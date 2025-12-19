@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import styles from './style.module.scss';
 
-import type { Tab } from '@/components/ui/Tabs/tabs.type';
+import type { Tab } from '@/components/ui/Tabs/type';
 defineProps<{
   value: string;
   tabs: Tab[];

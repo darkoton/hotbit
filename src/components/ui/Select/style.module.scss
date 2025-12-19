@@ -1,0 +1,83 @@
+.select {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.value,
+.option {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #fff;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 9.5px 12px;
+  background-color: $bg-secondary;
+  border-radius: 8px;
+}
+
+.arrow {
+  font-size: 24px;
+  color: $accent;
+  transition: all 0.3s ease 0s;
+
+  &.open {
+    transform: scaleY(-1);
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  background-color: $bg-secondary;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  max-height: 250px;
+  overflow: auto;
+  z-index: 10;
+}
+
+.option {
+  padding: 8px 12px;
+  width: 100%;
+
+  @media (any-hover: hover) {
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+      background-color: $bg-popup;
+    }
+  }
+
+  &.active {
+    background-color: $bg-popup;
+  }
+}
+
+.img {
+  width: 21px;
+  height: 21px;
+  font-size: 21px;
+}
+
+.note {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: $accent;
+}
+
+.noteIcon {
+  font-size: 16px;
+}

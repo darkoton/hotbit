@@ -1,10 +1,5 @@
 {
-  "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ],
+  "references": [],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
@@ -23,6 +18,7 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "src/**/*.vue"
+    "src/**/*.vue",
+    "/**/*.d.ts"
   ]
 }
