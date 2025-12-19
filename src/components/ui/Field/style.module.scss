@@ -1,0 +1,26 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: $white;
+
+  &.optional {
+    color: $grey-light;
+  }
+}
+
+.input {
+  padding: 12.5px 12px;
+  background-color: $bg-secondary;
+  border-radius: 8px;
+  color: $white;
+}

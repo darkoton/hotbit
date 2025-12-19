@@ -6,6 +6,10 @@
   border-radius: 10px;
   background: transparent;
 
+  &:disabled {
+    pointer-events: none;
+  }
+
   &,
   &.primary {
     background: $accent;

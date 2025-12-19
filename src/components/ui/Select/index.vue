@@ -25,81 +25,86 @@ useClickOutside(selectEl, () => {
 
 <template>
   <div ref="selectEl" :class="styles.select">
-    <label v-if="label" class="text-h3">{{
-      label
-    }}</label>
+    <div :class="styles.selectWrapper">
+      <label v-if="label" class="text-h3">{{
+        label
+      }}</label>
 
-    <button
-      :class="styles.button"
-      @click="open = !open"
-    >
-      <div
-        :class="[styles.value, 'text-body-bold']"
+      <button
+        :class="styles.button"
+        @click="open = !open"
       >
-        <template v-if="value">
-          <img
-            v-if="typeof value.img === 'string'"
-            :src="value.img"
-            alt="Image"
-            :class="styles.img"
-          />
-
-          <component
-            v-else-if="value.img"
-            :is="value.img"
-            :class="styles.img"
-          />
-
-          {{ value.label }}
-        </template>
-        <template v-else>
-          {{ placeholder }}
-        </template>
-      </div>
-
-      <ArrowDown
-        :class="[
-          styles.arrow,
-          open && styles.open,
-        ]"
-      />
-    </button>
-
-    <Transition name="show-list">
-      <ul :class="styles.list" v-show="open">
-        <li v-for="option in options">
-          <button
-            @click="
-              () => {
-                value = option;
-                open = false;
-              }
-            "
-            :class="[
-              styles.option,
-              'text-body',
-              value.value === option.value &&
-                styles.active,
-            ]"
-          >
+        <div
+          :class="[
+            styles.value,
+            'text-body-bold',
+          ]"
+        >
+          <template v-if="value">
             <img
-              v-if="
-                typeof option.img === 'string'
-              "
-              :src="option.img"
+              v-if="typeof value.img === 'string'"
+              :src="value.img"
               alt="Image"
               :class="styles.img"
             />
+
             <component
-              v-else-if="option.img"
-              :is="option.img"
+              v-else-if="value.img"
+              :is="value.img"
               :class="styles.img"
             />
-            {{ option.label }}
-          </button>
-        </li>
-      </ul>
-    </Transition>
+
+            {{ value.label }}
+          </template>
+          <template v-else>
+            {{ placeholder }}
+          </template>
+        </div>
+
+        <ArrowDown
+          :class="[
+            styles.arrow,
+            open && styles.open,
+          ]"
+        />
+      </button>
+
+      <Transition name="show-list">
+        <ul :class="styles.list" v-show="open">
+          <li v-for="option in options">
+            <button
+              @click="
+                () => {
+                  value = option;
+                  open = false;
+                }
+              "
+              :class="[
+                styles.option,
+                'text-body',
+                value.value === option.value &&
+                  styles.active,
+              ]"
+            >
+              <img
+                v-if="
+                  typeof option.img === 'string'
+                "
+                :src="option.img"
+                alt="Image"
+                :class="styles.img"
+              />
+              <component
+                v-else-if="option.img"
+                :is="option.img"
+                :class="styles.img"
+              />
+              {{ option.label }}
+            </button>
+          </li>
+        </ul>
+      </Transition>
+    </div>
 
     <span
       v-if="note"

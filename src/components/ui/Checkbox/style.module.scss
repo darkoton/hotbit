@@ -1,0 +1,69 @@
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.input {
+  /* Полный сброс */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+
+  /* Собственный вид */
+  width: var(--size);
+  height: var(--size);
+  min-width: var(--size);
+  min-height: var(--size);
+  border: calc(var(--size) * 0.06) solid $accent;
+  border-radius: calc(var(--size) * 0.33);
+  cursor: pointer;
+  position: relative;
+  transition: 0.25s ease;
+  background-color: transparent;
+
+  @media (any-hover: hover) {
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+
+    &:not(:disabled):hover {
+      border-color: $white;
+    }
+  }
+
+  &:disabled {
+    pointer-events: none;
+  }
+}
+
+/* Галочка */
+.input {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: calc(var(--size) * 0.25);
+    height: calc(var(--size) * 0.43);
+    border-right: calc(var(--size) * 0.06) solid $accent;
+    border-bottom: calc(var(--size) * 0.06) solid $accent;
+    transform: translate(calc(var(--size) * 0.2), 0) rotate(45deg) scale(0);
+    transform-origin: bottom left;
+    transition: 0.2s ease;
+  }
+}
+
+/* Состояние checked */
+.input {
+  &:checked {
+    border-color: $accent;
+  }
+}
+
+.input {
+  &:checked::after {
+    transform: translate(calc(var(--size) * 0.2), 0) rotate(45deg) scale(1);
+  }
+}

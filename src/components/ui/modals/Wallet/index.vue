@@ -10,6 +10,8 @@ import { OptionType } from '@components/ui/Select/type';
 
 import Copy from '@components/ui/Copy/index.vue';
 import Button from '@components/ui/Button/index.vue';
+import Field from '@components/ui/Field/index.vue';
+import Checkbox from '@components/ui/Checkbox/index.vue';
 
 import Wallet from '@components/icons/Wallet.vue';
 import Cards from '@components/icons/Cards.vue';
@@ -20,6 +22,7 @@ import BNB from '@components/tokens/BNB.vue';
 import DOGE from '@components/tokens/DOGE.vue';
 import LTC from '@components/tokens/LTC.vue';
 import USDT from '@components/tokens/USDT.vue';
+import ArrowDown from '@/components/icons/ArrowDown.vue';
 
 const { show, openButton } = defineProps<{
   show: boolean;
@@ -30,8 +33,8 @@ const emit = defineEmits(['close']);
 
 const tabs = ref<Tab[]>([
   {
-    name: 'Detosit',
-    value: 'detosit',
+    name: 'Deposit',
+    value: 'deposit',
   },
   {
     name: 'Withdraw',
@@ -39,9 +42,7 @@ const tabs = ref<Tab[]>([
   },
 ]);
 
-const tabActive = ref<string>(
-  tabs.value[0].value
-);
+const tabActive = ref<string>(tabs.value[0].value);
 
 const coins = ref<OptionType[]>([
   {
@@ -80,9 +81,7 @@ const coins = ref<OptionType[]>([
     img: markRaw(DOGE),
   },
 ]);
-const coinValue = ref<OptionType | null>(
-  coins.value[0]
-);
+const coinValue = ref<OptionType | null>(coins.value[0]);
 
 const networks = ref<OptionType[]>([
   {
@@ -99,19 +98,16 @@ const networks = ref<OptionType[]>([
     value: 'ton',
   },
 ]);
-const networkValue = ref<OptionType | null>(
-  networks.value[0]
-);
+const networkValue = ref<OptionType | null>(networks.value[0]);
 
 const openQrCode = ref<boolean>(false);
+
+const depositCheckbox = ref<boolean>(false);
+const depositInfoOpen = ref<boolean>(false);
 </script>
 
 <template>
-  <ModalDown
-    :show
-    :openButton
-    @close="$emit('close')"
-  >
+  <ModalDown :show :openButton @close="$emit('close')">
     <div :class="styles.wallet">
       <div :class="styles.head">
         <div :class="styles.title">
@@ -124,20 +120,11 @@ const openQrCode = ref<boolean>(false);
         </div>
       </div>
 
-      <Tabs
-        :class="styles.tabs"
-        :tabs
-        :value="tabActive"
-        @select="(v) => (tabActive = v)"
-      />
+      <Tabs :class="styles.tabs" :tabs :value="tabActive" @select="(v) => (tabActive = v)" />
 
-      <div v-if="tabActive === 'detosit'">
+      <div v-if="tabActive === 'deposit'">
         <div :class="styles.selects">
-          <Select
-            :options="coins"
-            v-model="coinValue"
-            label="Network"
-          />
+          <Select :options="coins" v-model="coinValue" label="Network" />
 
           <Select
             :options="networks"
@@ -156,26 +143,89 @@ const openQrCode = ref<boolean>(false);
           />
 
           <Transition name="slide-qr">
-            <div
-              v-if="openQrCode"
-              :class="styles.qrCode"
-            >
-              <img
-                src="/imgs/qr-code.png"
-                alt="QR Code"
-              />
+            <div v-if="openQrCode" :class="styles.qrCode">
+              <img src="/imgs/qr-code.png" alt="QR Code" />
             </div>
           </Transition>
 
-          <Button
-            @click="openQrCode = !openQrCode"
-            :class="styles.openQr"
-            variant="black"
-            >{{
-              openQrCode ? 'Close' : 'Open'
-            }}
-            QR Code</Button
+          <Button @click="openQrCode = !openQrCode" :class="styles.openQr" variant="black"
+            >{{ openQrCode ? 'Close' : 'Open' }} QR Code</Button
           >
+        </div>
+
+        <Field
+          id="promo"
+          :class="styles.promo"
+          label="Promo code"
+          :optional="true"
+          subLabel="if applicable"
+          placeholder="Enter your promo code here"
+        />
+
+        <div :class="styles.deposit">
+          <label :class="styles.depositCheckbox">
+            <Checkbox :size="30" v-model="depositCheckbox" />
+            <div :class="styles.depositLabel">
+              <span class="text-body-bold"> Deposit Bonus </span>
+              <span class="text-body text-grey-light"> 100% bonus up to $200 </span>
+            </div>
+          </label>
+
+          <div :class="styles.depositTags">
+            <span :class="styles.depositTag">
+              <Checkbox checked :size="13" disabled />
+
+              <span class="text-body">No wager</span>
+            </span>
+
+            <span :class="styles.depositTag">
+              <Checkbox checked :size="13" disabled />
+
+              <span class="text-body">Instant Cashout</span>
+            </span>
+
+            <span :class="styles.depositTag">
+              <Checkbox checked :size="13" disabled />
+
+              <span class="text-body">No KYC</span>
+            </span>
+          </div>
+
+          <button @click="depositInfoOpen = !depositInfoOpen" :class="styles.depositMoreInfo">
+            More Info <ArrowDown :class="[depositInfoOpen && styles.active]" />
+          </button>
+
+          <Transition name="slide-deposit">
+            <div v-if="depositInfoOpen" :class="styles.depositInfo">
+              <h3 class="text-h3">
+                We make your time at
+                <span class="text-accent"> Hotbit </span>
+                Special!
+              </h3>
+
+              <ul :class="styles.depositInfoList">
+                <li :class="[styles.depositInfoItem, 'text-body']">
+                  100% bonus from first $50-$200
+                </li>
+                <li :class="[styles.depositInfoItem, 'text-body']">
+                  No wagering requirement - only minimum play of $1
+                </li>
+                <li :class="[styles.depositInfoItem, 'text-body']">
+                  Instant cashout. Only the bonus is deducted
+                </li>
+                <li :class="[styles.depositInfoItem, 'text-body']">
+                  Multiaccount abuse will not be tolerated
+                </li>
+              </ul>
+
+              <Button
+                variant="primary"
+                :disabled="!depositCheckbox"
+                :class="styles.depositInfoButton"
+                >Take the Bonus!</Button
+              >
+            </div>
+          </Transition>
         </div>
       </div>
     </div>
@@ -193,6 +243,19 @@ const openQrCode = ref<boolean>(false);
 
 .slide-qr-enter-from,
 .slide-qr-leave-to {
+  max-height: 0px;
+}
+
+.slide-deposit-enter-active {
+  transition: all 0.3s ease;
+}
+
+.slide-deposit-leave-active {
+  transition: all 0.3s ease;
+}
+
+.slide-deposit-enter-from,
+.slide-deposit-leave-to {
   max-height: 0px;
 }
 </style>

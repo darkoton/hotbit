@@ -63,3 +63,90 @@
     width: 100%;
   }
 }
+
+.promo {
+  margin-bottom: 44px;
+}
+
+.deposit {
+  border-radius: 12px;
+  padding: 12px;
+  background-color: $bg-secondary;
+}
+
+.depositCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.depositLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.depositTags {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.depositTag {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.depositMoreInfo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: $white;
+
+  svg {
+    font-size: 21px;
+    transition: all 0.3s ease 0s;
+
+    &.active {
+      transform: scaleY(-1);
+    }
+  }
+}
+
+.depositInfo {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-height: 220px;
+  overflow: hidden;
+}
+
+.depositInfoList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.depositInfoItem {
+  display: flex;
+  gap: 6px;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-top: 3.5px;
+    background-color: $accent;
+  }
+}
+
+.depositInfoButton {
+  justify-content: center;
+  text-align: center;
+  min-height: 37px;
+}
