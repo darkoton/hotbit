@@ -1,15 +1,13 @@
 <script setup lang="ts">
 import styles from './style.module.scss';
 
+import type { Tab } from '@/components/ui/Tabs/tabs.type';
 defineProps<{
   value: string;
-  tabs: {
-    name: string;
-    value: string;
-  }[];
+  tabs: Tab[];
 }>();
 
-defineEmits('select');
+defineEmits(['select']);
 </script>
 
 <template>

@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import type { Component } from 'vue';
-import { ref, onMounted, onUnmounted } from 'vue';
-import BTC from '@/components/tokens/BTC.vue';
+import { ref } from 'vue';
+import BTC from '@components/tokens/BTC.vue';
 import ArrowDown from '@components/icons/ArrowDown.vue';
 import Wallet from '@components/icons/Wallet.vue';
 import { useClickOutside } from '@/composables/useClickOutside';
+import WalletModal from '@components/ui/modals/Wallet/index.vue';
 
 type Item = {
   value: string;
@@ -23,6 +24,11 @@ defineEmits(['select']);
 const balance = ref<null | HTMLElement>(null);
 const open = ref(false);
 
+const walletButton = ref<HTMLElement | null>(
+  null
+);
+const walletOpen = ref<boolean>(false);
+
 useClickOutside(balance, () => {
   open.value = false;
 });
@@ -30,6 +36,11 @@ useClickOutside(balance, () => {
 
 <template>
   <div class="balance" ref="balance">
+    <WalletModal
+      :show="walletOpen"
+      :open-button="walletButton"
+      @close="walletOpen = false"
+    />
     <button class="button" @click="open = !open">
       <span class="value text-body-bold"
         >$ {{ value }}</span
@@ -39,9 +50,13 @@ useClickOutside(balance, () => {
         :class="['arrow', open && 'rotate']"
       />
     </button>
-    <div class="wallet">
+    <button
+      ref="walletButton"
+      class="wallet"
+      @click="walletOpen = !walletOpen"
+    >
       <Wallet />
-    </div>
+    </button>
 
     <div class="dropdown" v-if="open">
       <div class="head">

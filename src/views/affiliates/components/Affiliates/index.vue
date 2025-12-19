@@ -4,17 +4,13 @@ import { ref } from 'vue';
 import Container from '@components/layouts/Container.vue';
 
 import Tabs from '@components/ui/Tabs/index.vue';
+import type { Tab } from '@/components/ui/Tabs/tabs.type';
 import Button from '@components/ui/Button/index.vue';
 
 import People from '@components/icons/People.vue';
 import Copy from '@components/icons/Copy.vue';
 
-const tabs = ref<
-  {
-    value: string;
-    name: string;
-  }[]
->([
+const tabs = ref<Tab[]>([
   {
     value: 'this-month',
     name: 'This Month',

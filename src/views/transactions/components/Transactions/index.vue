@@ -3,17 +3,13 @@ import styles from './style.module.scss';
 import { computed, ref } from 'vue';
 import Container from '@components/layouts/Container.vue';
 import Tabs from '@components/ui/Tabs/index.vue';
+import type { Tab } from '@/components/ui/Tabs/tabs.type';
 
 import Wallet from '@components/icons/EmptyWalletChange.vue';
 import ArrowLeft from '@components/icons/ArrowLeft.vue';
 import ArrowRight from '@components/icons/ArrowRight.vue';
 
-const tabs = ref<
-  {
-    value: string;
-    name: string;
-  }[]
->([
+const tabs = ref<Tab[]>([
   {
     value: 'deposits',
     name: 'Deposits',

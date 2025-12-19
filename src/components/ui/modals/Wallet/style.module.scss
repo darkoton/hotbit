@@ -1,0 +1,258 @@
+.game {
+  margin-bottom: 44px;
+}
+
+.head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.headLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.subtitle {
+  color: $grey-light;
+}
+
+.buttonStar {
+  font-size: 32px;
+  color: $grey-light;
+
+  @media (any-hover: hover) {
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      color: $accent;
+    }
+  }
+}
+
+.top {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  border-radius: 6px;
+  background-color: $bg-secondary;
+  overflow: hidden;
+}
+
+.cardTop {
+  padding: 6px;
+  padding-bottom: 0;
+}
+
+.cardImg {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.cardZoom {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  color: $white;
+  right: 4px;
+  bottom: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  font-size: 12px;
+  background-color: $bg-popup;
+
+  @media (any-hover: hover) {
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      color: $accent;
+    }
+  }
+}
+
+.cardWin {
+  width: 100%;
+  background-color: $bg-popup;
+  text-align: center;
+  padding: 6px 0;
+}
+
+.info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.infoStats {
+  background-color: $bg-secondary;
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.infoAchiev {
+  background-color: $bg-secondary;
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.infoAchievTitle {
+  margin-bottom: 8px;
+}
+
+.infoCups {
+  display: flex;
+  justify-content: space-between;
+  gap: 4.5px;
+  margin-bottom: 16px;
+}
+
+.infoCup {
+  font-size: 26px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $bg;
+
+  &.active {
+    background-color: $accent;
+  }
+}
+
+.infoExpirience {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.infoProgress {
+  margin-bottom: 16px;
+}
+
+.infoMore {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $white;
+  transition: all 0.3s ease 0s;
+
+  svg {
+    font-size: 15px;
+  }
+
+  @media (any-hover: hover) {
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      color: $accent;
+    }
+  }
+}
+
+.infoSpoller {
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  svg {
+    font-size: 23px;
+    transition: all 0.3s ease 0s;
+  }
+
+  &.active {
+    svg {
+      transform: scaleY(-1);
+    }
+  }
+
+  @media (any-hover: hover) {
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      color: $accent;
+    }
+  }
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+  background-color: $bg-secondary;
+  border-radius: 12px;
+  padding: 12px;
+  transform: scaleY(1);
+  transform-origin: top center;
+}
+
+.optionsGrid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 4px;
+  column-gap: 16px;
+}
+
+:global(.v-enter-active),
+:global(.v-leave-active) {
+  transition: all 0.5s ease;
+}
+
+:global(.v-enter-from),
+:global(.v-leave-to) {
+  transform: scaleY(0);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.button {
+  text-align: center;
+  justify-content: center;
+  min-height: 37px;
+}
+
+.slots {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.games {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(100px, 1fr));
+  gap: 12px;
+}

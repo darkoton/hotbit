@@ -6,17 +6,23 @@
     }
   ],
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@styles/*": ["./src/styles/*"],
-      "@components/*": ["./src/components/*"],
-      "@stores/*": ["./src/stores/*"],
-      "@assets/*": ["./src/assets/*"],
-      "@views/*": ["./src/views/*"],
-      "@configs/*": ["./src/configs/*"],
-      "@interfaces/*": ["./src/interfaces/*"],
-      "@data/*": ["./src/data/*"],
-      "@composables/*": ["./src/composables/*"]
+      "@/*": ["src/*"],
+      "@styles/*": ["src/styles/*"],
+      "@components/*": ["src/components/*"],
+      "@stores/*": ["src/stores/*"],
+      "@assets/*": ["src/assets/*"],
+      "@views/*": ["src/views/*"],
+      "@configs/*": ["src/configs/*"],
+      "@interfaces/*": ["src/interfaces/*"],
+      "@data/*": ["src/data/*"],
+      "@composables/*": ["src/composables/*"]
     }
-  }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
+  ]
 }
