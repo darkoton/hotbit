@@ -1,26 +1,22 @@
 {
-  "references": [],
-  "compilerOptions": {
-    "outDir": "dist",
-    "jsx": "preserve",
-    "types": ["vite/client"],
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "ignoreDeprecations": "6.0",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"],
-      "@styles/*": ["src/styles/*"],
-      "@components/*": ["src/components/*"],
-      "@stores/*": ["src/stores/*"],
-      "@assets/*": ["src/assets/*"],
-      "@views/*": ["src/views/*"],
-      "@configs/*": ["src/configs/*"],
-      "@interfaces/*": ["src/interfaces/*"],
-      "@data/*": ["src/data/*"],
-      "@composables/*": ["src/composables/*"]
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
     }
-  },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "src/types/**/*.d.ts"]
+  ],
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@components/*": ["./src/components/*"],
+      "@stores/*": ["./src/stores/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@views/*": ["./src/views/*"],
+      "@configs/*": ["./src/configs/*"],
+      "@interfaces/*": ["./src/interfaces/*"],
+      "@data/*": ["./src/data/*"],
+      "@composables/*": ["./src/composables/*"]
+    }
+  }
 }
