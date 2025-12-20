@@ -70,23 +70,12 @@ const balances = [
     <Container>
       <div :class="styles.body">
         <button :to="urls.home">
-          <img
-            width="60"
-            height="25"
-            :src="Logo"
-            alt="Logo"
-          />
+          <img width="60" height="25" :src="Logo" alt="Logo" />
         </button>
 
-        <BalanceSelect
-          :value="35.32"
-          :items="balances"
-        />
+        <BalanceSelect :value="35.32" :items="balances" />
 
-        <Account
-          avatar="/imgs/avatar.png"
-          :progress-value="35"
-        />
+        <Account avatar="/imgs/avatar.png" :progress-value="35" />
       </div>
     </Container>
   </header>

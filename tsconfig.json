@@ -1,6 +1,13 @@
 {
   "references": [],
   "compilerOptions": {
+    "outDir": "dist",
+    "jsx": "preserve",
+    "types": ["vite/client"],
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "ignoreDeprecations": "6.0",
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
@@ -15,10 +22,5 @@
       "@composables/*": ["src/composables/*"]
     }
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "/**/*.d.ts"
-  ]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "src/types/**/*.d.ts"]
 }
