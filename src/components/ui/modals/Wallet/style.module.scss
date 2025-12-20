@@ -150,3 +150,88 @@
   text-align: center;
   min-height: 37px;
 }
+
+.withdraw {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.withdrawSubmit {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.withdrawButton {
+  min-height: 37px;
+  text-align: center;
+  justify-content: center;
+}
+
+.withdrawNote {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  svg {
+    font-size: 16px;
+  }
+}
+
+.balance {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  padding: 12px;
+  background-color: $bg-secondary;
+  gap: 16px;
+}
+
+.balanceTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  svg {
+    font-size: 24px;
+    color: $accent;
+  }
+}
+
+.balanceRows {
+  display: flex;
+  flex-direction: column;
+}
+
+.balanceRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid $grey-dark;
+
+  &:first-child {
+    padding-top: 0;
+  }
+  &:last-child {
+    padding-bottom: 0;
+    border-bottom-width: 0px;
+  }
+}
+
+.balanceValue {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  svg {
+    font-size: 21px;
+  }
+}

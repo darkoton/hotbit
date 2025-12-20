@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref, markRaw, Transition } from 'vue';
+import { ref, markRaw, Transition, type Component } from 'vue';
 import styles from './style.module.scss';
 import ModalDown from '../ModalDown.vue';
+
 import Tabs from '@components/ui/Tabs/index.vue';
 import type { Tab } from '@/components/ui/Tabs/type';
 
@@ -14,6 +15,7 @@ import Field from '@components/ui/Field/index.vue';
 import Checkbox from '@components/ui/Checkbox/index.vue';
 
 import Wallet from '@components/icons/Wallet.vue';
+import WalletOutlined from '@components/icons/WalletOutlined.vue';
 import Cards from '@components/icons/Cards.vue';
 
 import BTC from '@components/tokens/BTC.vue';
@@ -22,7 +24,9 @@ import BNB from '@components/tokens/BNB.vue';
 import DOGE from '@components/tokens/DOGE.vue';
 import LTC from '@components/tokens/LTC.vue';
 import USDT from '@components/tokens/USDT.vue';
-import ArrowDown from '@/components/icons/ArrowDown.vue';
+
+import ArrowDown from '@components/icons/ArrowDown.vue';
+import Warning from '@components/icons/Warning.vue';
 
 const { show, openButton } = defineProps<{
   show: boolean;
@@ -113,7 +117,7 @@ const depositInfoOpen = ref<boolean>(false);
         <div :class="styles.title">
           <h3 class="title-section">
             <div :class="styles.titleIconBody">
-              <Wallet :class="styles.titleIcon" />
+              <WalletOutlined :class="styles.titleIcon" />
             </div>
             Gates of Olympus
           </h3>
@@ -226,6 +230,68 @@ const depositInfoOpen = ref<boolean>(false);
               >
             </div>
           </Transition>
+        </div>
+      </div>
+
+      <div v-if="tabActive === 'withdraw'" :class="styles.withdraw">
+        <div :class="styles.form">
+          <Select :options="coins" v-model="coinValue" label="Network" />
+
+          <Select
+            :options="networks"
+            v-model="networkValue"
+            label="Currency"
+            note="Make sure you select right network!"
+          />
+
+          <Field
+            :class="styles.field"
+            label="Wallet address"
+            placeholder="Enter your wallet address"
+          />
+
+          <Field
+            :coin="coinValue.img as Component"
+            :class="styles.field"
+            label="Amount"
+            placeholder="00.00"
+            variant="amount"
+            type="number"
+            :error="true"
+            note="Minimum playable deposit for this network is $20"
+          />
+
+          <div :class="styles.withdrawSubmit">
+            <Button variant="primary" :class="styles.withdrawButton">Withdraw </Button>
+            <span :class="[styles.withdrawNote, 'text-body']">
+              <Warning />
+              This transaction will be processed in Polygon</span
+            >
+          </div>
+        </div>
+
+        <div :class="styles.balance">
+          <h4 :class="[styles.balanceTitle, 'text-h3']">
+            <WalletOutlined />
+            Your Balance
+          </h4>
+
+          <div :class="styles.balanceRows">
+            <div :class="styles.balanceRow">
+              <span class="text-body">Live</span>
+              <span :class="[styles.balanceValue, 'text-body-bold']">$0.68 <BTC /></span>
+            </div>
+
+            <div :class="styles.balanceRow">
+              <span class="text-body">Bonus</span>
+              <span :class="[styles.balanceValue, 'text-body-bold']">$0.68 <BTC /></span>
+            </div>
+
+            <div :class="styles.balanceRow">
+              <span class="text-body">Withdrawable Amount</span>
+              <span :class="[styles.balanceValue, 'text-body-bold']">$245.24 <BTC /></span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
