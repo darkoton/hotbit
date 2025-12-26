@@ -21,6 +21,7 @@ export default defineConfig(({ mode }) => {
           main: resolve(__dirname, 'index.html'),
           affiliatesPage: resolve(__dirname, 'affiliates.html'),
           transactionsPage: resolve(__dirname, 'transactions.html'),
+          houseShare: resolve(__dirname, 'houseShare.html'),
           styles: resolve(__dirname, 'src/entries/styles.js'),
           header: resolve(__dirname, 'src/entries/header.js'),
           banner: resolve(__dirname, 'src/entries/banner.js'),
@@ -37,6 +38,10 @@ export default defineConfig(({ mode }) => {
           affiliates: resolve(__dirname, 'src/entries/affiliates.js'),
           walletModal: resolve(__dirname, 'src/entries/walletModal.js'),
           rewardsModal: resolve(__dirname, 'src/entries/rewardsModal.js'),
+          houseShareHead: resolve(__dirname, 'src/entries/houseShare/head.js'),
+          houseShareAchievements: resolve(__dirname, 'src/entries/houseShare/achievements.js'),
+          houseShareDifficulty: resolve(__dirname, 'src/entries/houseShare/difficulty.js'),
+          houseShareClaim: resolve(__dirname, 'src/entries/houseShare/claim.js'),
         },
         output: {
           entryFileNames: 'js/[name].js',

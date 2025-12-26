@@ -1,0 +1,38 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 44px;
+}
+
+.widgets {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.widget {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  padding: 12px;
+  background-color: $bg-popup;
+  width: 100%;
+}
+
+.widgetIcon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $accent;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.widgetTitle {
+  margin-bottom: 4px;
+}

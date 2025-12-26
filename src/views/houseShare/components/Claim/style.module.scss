@@ -1,0 +1,26 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 44px;
+}
+
+.progress {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.progressTitle {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  svg {
+    font-size: 24px;
+  }
+}
+
+.progressBar {
+  width: 100%;
+}

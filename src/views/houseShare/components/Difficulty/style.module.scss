@@ -1,0 +1,30 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.tag,
+.tags {
+  padding: 8px 12px;
+  border-radius: 8px;
+  background-color: $bg-secondary;
+}
+
+.tags {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.subtag {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  svg {
+    font-size: 15px;
+  }
+}
