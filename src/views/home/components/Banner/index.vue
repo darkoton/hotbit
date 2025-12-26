@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import Container from '@components/layouts/Container.vue';
 import bannerImg from './assets/banner.png';
 import { Pagination } from 'swiper/modules';
+import RewardsModal from '@components/ui/modals/Rewards/index.vue';
 
 // @ts-ignore
 import 'swiper/css/pagination';
@@ -14,6 +15,14 @@ import type { Swiper as SwiperType } from 'swiper';
 
 const pagination = ref(null);
 const modules = [Pagination];
+
+const sliderBanner = ref(null);
+
+const gameRewards = ref<boolean>(false);
+
+function closeRewards() {
+  gameRewards.value = false;
+}
 
 function renderPagination(swiper: SwiperType, current: number, total: number): string {
   let bullets = '';
@@ -28,6 +37,8 @@ function renderPagination(swiper: SwiperType, current: number, total: number): s
   <Container>
     <div :class="styles.body">
       <swiper
+        @click="gameRewards = true"
+        ref="sliderBanner"
         :modules="modules"
         :grab-cursor="true"
         :class="styles.slider"
@@ -48,4 +59,6 @@ function renderPagination(swiper: SwiperType, current: number, total: number): s
       <div :class="styles.pagination" ref="pagination"></div>
     </div>
   </Container>
+
+  <RewardsModal @close="closeRewards" :show="gameRewards" :open-button="sliderBanner" />
 </template>

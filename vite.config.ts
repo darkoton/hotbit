@@ -1,11 +1,9 @@
-import { fileURLToPath, URL } from 'node:url'
+import { fileURLToPath, URL } from 'node:url';
 
-import { defineConfig, loadEnv } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import vueDevTools from 'vite-plugin-vue-devtools'
+import { defineConfig, loadEnv } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import vueDevTools from 'vite-plugin-vue-devtools';
 import { resolve } from 'path';
-
-
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
@@ -13,12 +11,9 @@ export default defineConfig(({ mode }) => {
 
   return {
     server: {
-      port: Number(env.PORT) || 5000
+      port: Number(env.PORT) || 5000,
     },
-    plugins: [
-      vue(),
-      vueDevTools(),
-    ],
+    plugins: [vue(), vueDevTools()],
     build: {
       outDir: 'dist',
       rollupOptions: {
@@ -41,12 +36,13 @@ export default defineConfig(({ mode }) => {
           gameModal: resolve(__dirname, 'src/entries/gameModal.js'),
           affiliates: resolve(__dirname, 'src/entries/affiliates.js'),
           walletModal: resolve(__dirname, 'src/entries/walletModal.js'),
+          rewardsModal: resolve(__dirname, 'src/entries/rewardsModal.js'),
         },
         output: {
           entryFileNames: 'js/[name].js',
           chunkFileNames: 'js/chunks/[name]-[hash].js',
           assetFileNames: 'assets/[name].[ext]',
-        }
+        },
       },
       manifest: true,
     },
@@ -61,7 +57,7 @@ export default defineConfig(({ mode }) => {
         '@configs': fileURLToPath(new URL('./src/configs', import.meta.url)),
         '@interfaces': fileURLToPath(new URL('./src/interfaces', import.meta.url)),
         '@data': fileURLToPath(new URL('./src/data', import.meta.url)),
-        '@composables': fileURLToPath(new URL('./src/composables', import.meta.url))
+        '@composables': fileURLToPath(new URL('./src/composables', import.meta.url)),
       },
     },
     css: {
@@ -70,9 +66,9 @@ export default defineConfig(({ mode }) => {
           additionalData: `
           @use "@styles/modules/vars.scss" as *;
           @use "@styles/modules/mixins.scss" as *;
-        `
-        }
-      }
-    }
-  }
-})
+        `,
+        },
+      },
+    },
+  };
+});

@@ -1,0 +1,99 @@
+.rewards {
+  margin-bottom: 44px;
+  display: flex;
+  flex-direction: column;
+}
+
+.head {
+  margin-bottom: 24px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.titleIconBody {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: $accent;
+}
+
+.titleIcon {
+  font-size: 24px;
+  color: $white;
+}
+
+.bonus {
+  padding: 12px;
+  background-color: $bg-secondary;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+}
+.itemLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.itemIcon {
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid $white;
+  border-radius: 12px;
+  background: $bg-secondary;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.itemTexts {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.itemTitle {
+  display: flex;
+  gap: 8px;
+}
+.itemInfoIcon {
+  color: $grey-light;
+  font-size: 24px;
+}
+.itemRight {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.itemButton {
+  padding: 0;
+  min-width: 105px;
+  min-height: 37px;
+  text-align: center;
+  justify-content: center;
+}
+.subButton {
+  font-size: 12px;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  font-weight: 700;
+  color: $white;
+}

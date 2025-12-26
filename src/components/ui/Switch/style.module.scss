@@ -1,0 +1,30 @@
+.switch {
+  display: block;
+  height: var(--size);
+  width: calc(var(--size) * 2);
+  border-radius: 1000px;
+  background-color: $grey-dark;
+  position: relative;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+
+  &.active {
+    background-color: $accent;
+  }
+}
+
+.indicator {
+  position: absolute;
+  top: 50%;
+  left: calc(var(--size) * 0.08);
+  width: calc(var(--size) * 0.83);
+  height: calc(var(--size) * 0.83);
+  border-radius: 50%;
+  background-color: $white;
+  transition: all 0.3s ease 0s;
+  transform: translateY(-50%);
+
+  &.active {
+    left: calc(100% - var(--size) * 0.83 - var(--size) * 0.08);
+  }
+}
