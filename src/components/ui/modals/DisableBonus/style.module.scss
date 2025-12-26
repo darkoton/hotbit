@@ -1,0 +1,27 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  background: $bg-popup;
+  border-radius: 12px;
+  width: 370px;
+  overflow: auto;
+  padding: 12px;
+}
+
+.title {
+  margin-bottom: 4px;
+}
+
+.desc {
+  margin-bottom: 14px;
+}
+
+.buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.button {
+  width: 100%;
+  justify-content: center;
+}

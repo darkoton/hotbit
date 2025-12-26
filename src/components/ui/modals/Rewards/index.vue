@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import styles from './style.module.scss';
 import ModalDown from '../ModalDown.vue';
+import DisableBonus from '@components/ui/modals/DisableBonus/index.vue';
 
 import MedalStar from '@components/icons/MedalStar.vue';
 import Info from '@components/icons/Info.vue';
@@ -56,6 +57,26 @@ const items = ref([
     subButton: 'Refer a Friend',
   },
 ]);
+
+const popupOpen = ref<boolean>(false);
+const popupButton = ref<HTMLElement | null>(null);
+
+const openPopup = () => {
+  popupOpen.value = true;
+};
+
+const closePopup = () => {
+  popupOpen.value = false;
+};
+
+watch(
+  () => switchValue.value,
+  (v, old_v) => {
+    if (old_v) {
+      openPopup();
+    }
+  }
+);
 </script>
 
 <template>
@@ -72,7 +93,7 @@ const items = ref([
         </div>
       </div>
 
-      <label :class="styles.bonus">
+      <label ref="popupButton" :class="styles.bonus">
         <span class="text-h3">Bonus</span>
         <Switch v-model="switchValue" />
       </label>
@@ -111,4 +132,6 @@ const items = ref([
       <span :class="styles.total">Total Affiliates Payout: $128.44</span>
     </div>
   </ModalDown>
+
+  <DisableBonus @close="closePopup" :show="popupOpen" :open-button="popupButton" />
 </template>

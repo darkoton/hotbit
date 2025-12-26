@@ -1,6 +1,9 @@
 <script setup lang="ts">
-import { ref, type Ref } from 'vue';
+import { ref, watch } from 'vue';
 import { useClickOutside } from '@composables/useClickOutside';
+import { useScrollLock } from '@composables/useLockScroll';
+
+const lockScroll = useScrollLock();
 
 const { show, openButton } = defineProps<{
   show: boolean;
@@ -16,6 +19,13 @@ useClickOutside([block, openButton], () => {
     emit('close');
   }
 });
+
+watch(
+  () => show,
+  (v) => {
+    lockScroll.value = v;
+  }
+);
 </script>
 
 <template>

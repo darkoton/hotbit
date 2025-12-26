@@ -51,6 +51,11 @@
     // }
   }
 
+  &.red {
+    background-color: $red;
+    color: $white;
+  }
+
   &:not(:disabled) {
     @media (any-hover: hover) {
       cursor: pointer;
