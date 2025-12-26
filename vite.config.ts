@@ -42,6 +42,7 @@ export default defineConfig(({ mode }) => {
           houseShareAchievements: resolve(__dirname, 'src/entries/houseShare/achievements.js'),
           houseShareDifficulty: resolve(__dirname, 'src/entries/houseShare/difficulty.js'),
           houseShareClaim: resolve(__dirname, 'src/entries/houseShare/claim.js'),
+          houseShareCalc: resolve(__dirname, 'src/entries/houseShare/calc.js'),
         },
         output: {
           entryFileNames: 'js/[name].js',
