@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, markRaw, Transition, type Component } from 'vue';
+import { ref, Transition, type Component } from 'vue';
 import styles from './style.module.scss';
 import ModalDown from '../ModalDown.vue';
 
@@ -46,46 +46,46 @@ const tabs = ref<Tab[]>([
   },
 ]);
 
-const tabActive = ref<string>(tabs.value[0].value);
+const tabActive = ref<string | null>(tabs.value[0]?.value || null);
 
 const coins = ref<OptionType[]>([
   {
     label: 'BTC Coin',
     value: 'btc',
-    img: markRaw(BTC),
+    img: BTC,
   },
 
   {
     label: 'BCH Coin',
     value: 'bch',
-    img: markRaw(BCH),
+    img: BCH,
   },
 
   {
     label: 'BNB Coin',
     value: 'bnb',
-    img: markRaw(BNB),
+    img: BNB,
   },
 
   {
     label: 'USDT Coin',
     value: 'usdt',
-    img: markRaw(USDT),
+    img: USDT,
   },
 
   {
     label: 'LTC Coin',
     value: 'ltc',
-    img: markRaw(LTC),
+    img: LTC,
   },
 
   {
     label: 'DOGe Coin',
     value: 'doge',
-    img: markRaw(DOGE),
+    img: DOGE,
   },
 ]);
-const coinValue = ref<OptionType | null>(coins.value[0]);
+const coinValue = ref<OptionType | null>(coins.value[0] || null);
 
 const networks = ref<OptionType[]>([
   {
@@ -102,7 +102,7 @@ const networks = ref<OptionType[]>([
     value: 'ton',
   },
 ]);
-const networkValue = ref<OptionType | null>(networks.value[0]);
+const networkValue = ref<OptionType | null>(networks.value[0] || null);
 
 const openQrCode = ref<boolean>(false);
 
@@ -251,7 +251,7 @@ const depositInfoOpen = ref<boolean>(false);
           />
 
           <Field
-            :coin="coinValue.img as Component"
+            :coin="coinValue?.img as Component"
             :class="styles.field"
             label="Amount"
             placeholder="00.00"

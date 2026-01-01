@@ -11,4 +11,4 @@ export function init(selector = '#info') {
   }
 }
 
-    init();
+init();

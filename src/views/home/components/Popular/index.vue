@@ -39,9 +39,7 @@ const games: GameCardType[] = [
 ];
 
 const lockScroll = useScrollLock();
-const favoritesButton = ref<HTMLElement | null>(
-  null
-);
+const favoritesButton = ref<HTMLElement | null>(null);
 const favoritesOpen = ref<boolean>(false);
 
 const openFavorites = () => {
@@ -77,40 +75,18 @@ const closeGame = () => {
           Popular Slots
         </h2>
 
-        <Button
-          @click="openFavorites"
-          ref="favoritesButton"
-          >View All</Button
-        >
+        <Button @click="openFavorites" ref="favoritesButton">View All</Button>
       </div>
 
-      <swiper
-        :class="styles.slider"
-        :slides-per-view="3"
-        space-between="12"
-        :grab-cursor="true"
-      >
-        <swiper-slide
-          @click="openGame"
-          :class="styles.slide"
-          v-for="game in games"
-          :key="game.img"
-        >
+      <swiper :class="styles.slider" :slides-per-view="3" space-between="12" :grab-cursor="true">
+        <swiper-slide @click="openGame" :class="styles.slide" v-for="game in games" :key="game.img">
           <Game v-bind="game" />
         </swiper-slide>
       </swiper>
     </div>
   </Container>
 
-  <Favorites
-    @close="closeFavorites"
-    :show="favoritesOpen"
-    :open-button="favoritesButton"
-  />
+  <Favorites @close="closeFavorites" :show="favoritesOpen" :open-button="favoritesButton" />
 
-  <GameModal
-    @close="closeGame"
-    :show="gameOpen"
-    :open-button="gameButton"
-  />
+  <GameModal @close="closeGame" :show="gameOpen" :open-button="gameButton" />
 </template>

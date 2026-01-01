@@ -24,9 +24,7 @@ defineEmits(['select']);
 const balance = ref<null | HTMLElement>(null);
 const open = ref(false);
 
-const walletButton = ref<HTMLElement | null>(
-  null
-);
+const walletButton = ref<HTMLElement | null>(null);
 const walletOpen = ref<boolean>(false);
 
 useClickOutside(balance, () => {
@@ -36,25 +34,13 @@ useClickOutside(balance, () => {
 
 <template>
   <div class="balance" ref="balance">
-    <WalletModal
-      :show="walletOpen"
-      :open-button="walletButton"
-      @close="walletOpen = false"
-    />
+    <WalletModal :show="walletOpen" :open-button="walletButton" @close="walletOpen = false" />
     <button class="button" @click="open = !open">
-      <span class="value text-body-bold"
-        >$ {{ value }}</span
-      >
+      <span class="value text-body-bold">$ {{ value }}</span>
       <BTC class="token" />
-      <ArrowDown
-        :class="['arrow', open && 'rotate']"
-      />
+      <ArrowDown :class="['arrow', open && 'rotate']" />
     </button>
-    <button
-      ref="walletButton"
-      class="wallet"
-      @click="walletOpen = !walletOpen"
-    >
+    <button ref="walletButton" class="wallet" @click="walletOpen = !walletOpen">
       <Wallet />
     </button>
 
@@ -64,32 +50,15 @@ useClickOutside(balance, () => {
       </div>
       <div class="list">
         <div class="list__wrapper">
-          <button
-            @click="$emit('select')"
-            class="item"
-            v-for="(item, index) in items"
-            :key="index"
-          >
+          <button @click="$emit('select')" class="item" v-for="(item, index) in items" :key="index">
             <div class="item__left">
-              <span
-                class="item__value text-body-bold"
-                >{{ item.value }}</span
-              >
-              <span
-                class="item__price text-notification"
-                >{{ item.price }}</span
-              >
+              <span class="item__value text-body-bold">{{ item.value }}</span>
+              <span class="item__price text-notification">{{ item.price }}</span>
             </div>
 
             <div class="item__token">
-              <span
-                class="item__token_name text-body"
-                >{{ item.name }}</span
-              >
-              <component
-                :is="item.icon"
-                class="item__token_icon"
-              />
+              <span class="item__token_name text-body">{{ item.name }}</span>
+              <component :is="item.icon" class="item__token_icon" />
             </div>
           </button>
         </div>
@@ -180,12 +149,7 @@ useClickOutside(balance, () => {
   &__wrapper {
     max-height: 240px;
     overflow: auto;
-    @include scrollbars(
-      2px,
-      $accent,
-      #d9d9d9,
-      100px
-    );
+    @include scrollbars(2px, $accent, #d9d9d9, 100px);
   }
 }
 

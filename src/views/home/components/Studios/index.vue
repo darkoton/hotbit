@@ -16,11 +16,7 @@ import type { Swiper as SwiperType } from 'swiper';
 const pagination = ref(null);
 const modules = [Pagination];
 
-function renderPagination(
-  swiper: SwiperType,
-  current: number,
-  total: number
-): string {
+function renderPagination(swiper: SwiperType, current: number, total: number): string {
   let bullets = '';
   for (let i = 1; i <= total; i++) {
     bullets += `<span class="${styles.bullet} ${i === current ? styles.active : ''}"></span>`;
@@ -52,24 +48,14 @@ function renderPagination(
           clickable: true,
         }"
       >
-        <swiper-slide
-          :class="styles.slide"
-          v-for="studio in studios"
-          :key="studio.alt"
-        >
+        <swiper-slide :class="styles.slide" v-for="studio in studios" :key="studio.alt">
           <div :class="styles.card">
-            <img
-              :class="styles.img"
-              v-bind="studio"
-            />
+            <img :class="styles.img" v-bind="studio" />
           </div>
         </swiper-slide>
       </swiper>
 
-      <div
-        :class="styles.pagination"
-        ref="pagination"
-      ></div>
+      <div :class="styles.pagination" ref="pagination"></div>
     </div>
   </Container>
 </template>

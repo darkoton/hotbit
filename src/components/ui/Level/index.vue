@@ -7,10 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <div
-    :class="['text-sub-body', styles.level]"
-    :disabled="disabled"
-  >
+  <div :class="['text-sub-body', styles.level]" :disabled="disabled">
     <slot />
   </div>
 </template>

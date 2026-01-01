@@ -24,7 +24,7 @@ const tabsList = ref<Tab[]>([
   },
 ]);
 
-const tabActive = ref<string>(tabsList.value[0].value);
+const tabActive = ref<string | null>(tabsList.value[0]?.value || null);
 </script>
 
 <template>

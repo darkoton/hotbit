@@ -11,4 +11,4 @@ export function init(selector = '#wins') {
   }
 }
 
-    init();
+init();

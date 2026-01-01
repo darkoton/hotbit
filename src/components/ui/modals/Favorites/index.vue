@@ -16,11 +16,7 @@ const emit = defineEmits(['close']);
 </script>
 
 <template>
-  <ModalDown
-    :show
-    :openButton
-    @close="$emit('close')"
-  >
+  <ModalDown :show :openButton @close="$emit('close')">
     <h3 :class="['title-section', styles.title]">
       <Star class="title-icon" />
 

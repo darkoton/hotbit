@@ -1,118 +1,118 @@
 .wrapper {
-    position: relative;
+  position: relative;
 }
 
 .card {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 100%;
-    max-width: 115px;
-    border-radius: 8px;
-    background: $bg-secondary;
-    border: 1px solid $bg-secondary;
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 115px;
+  border-radius: 8px;
+  background: $bg-secondary;
+  border: 1px solid $bg-secondary;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
 
-    &.win {
-        border-color: $accent;
-    }
+  &.win {
+    border-color: $accent;
+  }
 
-    &:active {
-        border-color: $white;
-    }
+  &:active {
+    border-color: $white;
+  }
 }
 
 .img {
-    padding: 6px 6px 0 6px;
+  padding: 6px 6px 0 6px;
 
-    img {
-        width: 100%;
-        object-fit: cover;
-        border-radius: 8px;
-    }
+  img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
 }
 
 .cups {
-    display: flex;
-    align-items: center;
-    gap: 3.5px;
-    padding: 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 3.5px;
+  padding: 0 6px;
 }
 
 .cup {
-    padding: 6px 8px;
-    border-radius: 6px;
-    background: $accent;
-    font-size: 16px;
-    background-color: $bg;
-    color: $white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: $accent;
+  font-size: 16px;
+  background-color: $bg;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    @media (any-hover:hover) {
-        cursor: pointer;
-        transition: all 0.3s ease 0s;
+  @media (any-hover: hover) {
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
 
-        &:hover {
-            background-color: rgba($accent, 0.1);
-        }
+    &:hover {
+      background-color: rgba($accent, 0.1);
     }
+  }
 
-    &.active {
-        background-color: $accent;
-    }
+  &.active {
+    background-color: $accent;
+  }
 }
 
 .maxWin {
-    padding: 6px 0;
-    display: flex;
-    justify-content: center;
-    gap: 3px;
-    text-align: center;
-    background-color: $bg-popup;
-    border-radius: 0 0 8px 8px;
+  padding: 6px 0;
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+  text-align: center;
+  background-color: $bg-popup;
+  border-radius: 0 0 8px 8px;
 
-    & span {
-        color: $accent;
-    }
+  & span {
+    color: $accent;
+  }
 }
 
 .player {
-    position: absolute;
-    z-index: 2;
-    border: 1px solid $accent;
-    padding: 4px;
-    border-radius: 6px;
+  position: absolute;
+  z-index: 2;
+  border: 1px solid $accent;
+  padding: 4px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: $white;
+  width: 100%;
+  left: 0;
+  bottom: calc(100% + 6px);
+  background-color: $bg-secondary;
+
+  & .left {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    color: $white;
-    width: 100%;
-    left: 0;
-    bottom: calc(100% + 6px);
-    background-color: $bg-secondary;
+    gap: 2px;
+  }
 
-    & .left {
-        display: flex;
-        align-items: center;
-        gap: 2px;
-    }
+  & .crown {
+    font-size: 12px;
+  }
 
-    & .crown {
-        font-size: 12px;
-    }
+  & .name {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 100%;
+  }
 
-    & .name {
-        font-weight: 500;
-        font-size: 12px;
-        line-height: 100%;
-    }
-
-    & .money {
-        font-weight: 700;
-        font-size: 12px;
-        line-height: 100%;
-    }
+  & .money {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 100%;
+  }
 }

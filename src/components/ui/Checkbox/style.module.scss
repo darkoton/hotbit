@@ -42,7 +42,7 @@
 /* Галочка */
 .input {
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     inset: 0;
     width: calc(var(--size) * 0.25);

@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { ref, markRaw } from 'vue';
+import { ref } from 'vue';
 import styles from './style.module.scss';
 import Container from '@components/layouts/Container.vue';
 
 import Progress from '@components/ui/Progress/index.vue';
 import Select from '@components/ui/Select/index.vue';
-import { OptionType } from '@components/ui/Select/type';
+import type { OptionType } from '@components/ui/Select/type';
 
 import Info from '@components/icons/Info.vue';
 
@@ -53,7 +53,7 @@ const coins = ref<OptionType[]>([
     img: DOGE,
   },
 ]);
-const coinValue = ref<OptionType | null>(coins.value[0]);
+const coinValue = ref<OptionType | null>(coins.value[0] || null);
 </script>
 
 <template>

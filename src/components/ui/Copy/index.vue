@@ -13,26 +13,15 @@ defineProps<{
 
 <template>
   <div :class="styles.field">
-    <span
-      v-if="label"
-      :class="[styles.label, 'text-body-bold']"
-    >
-      <component
-        v-if="icon"
-        :class="styles.icon"
-        :is="icon"
-      />
+    <span v-if="label" :class="[styles.label, 'text-body-bold']">
+      <component v-if="icon" :class="styles.icon" :is="icon" />
 
       {{ label }}
     </span>
 
     <div :class="styles.input">
       <span class="text-body">
-        <span
-          v-if="before"
-          class="text-grey-light"
-          >{{ before }}</span
-        >
+        <span v-if="before" class="text-grey-light">{{ before }}</span>
 
         {{ text }}
       </span>

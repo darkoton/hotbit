@@ -1,19 +1,17 @@
 <script setup lang="ts">
-
 const { size = '28px' } = defineProps<{
-  size?: string,
-  src?: string
-}>()
-
+  size?: string;
+  src?: string;
+}>();
 </script>
 
 <template>
   <div class="avatar">
-    <img :src="src" alt="Avatar">
+    <img :src="src" alt="Avatar" />
   </div>
 </template>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .avatar {
   width: v-bind(size);
   height: v-bind(size);

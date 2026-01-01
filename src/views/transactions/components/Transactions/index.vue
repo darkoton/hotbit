@@ -27,9 +27,7 @@ const tabs = ref<Tab[]>([
     name: 'Bonuses ',
   },
 ]);
-const selectedTab = ref<string>(
-  tabs.value[0].value
-);
+const selectedTab = ref<string | null>(tabs.value[0]?.value || null);
 
 const data = ref<
   Array<{
@@ -99,11 +97,7 @@ const selectTable = computed(() => {
   return data.value.map((el) => {
     return {
       ...el,
-      id:
-        el.id +
-        tabs.value.findIndex(
-          (tab) => tab.value == selectedTab.value
-        ),
+      id: el.id + tabs.value.findIndex((tab) => tab.value == selectedTab.value),
     };
   });
 });
@@ -112,9 +106,7 @@ const selectTable = computed(() => {
 <template>
   <Container>
     <div :class="styles.body">
-      <h2
-        :class="['title-section', styles.title]"
-      >
+      <h2 :class="['title-section', styles.title]">
         <Wallet class="title-icon" />
         <span>Transactions</span>
       </h2>
@@ -132,80 +124,21 @@ const selectTable = computed(() => {
 
       <div :class="styles.table">
         <div :class="styles.tableMain">
-          <div
-            :class="[
-              styles.row,
-              'text-body-bold',
-            ]"
-          >
-            <span
-              :class="[
-                styles.data,
-                styles.column,
-                styles.id,
-              ]"
-            >
-              ID
-            </span>
-            <span
-              :class="[
-                styles.data,
-                styles.column,
-                styles.amound,
-              ]"
-            >
-              Amound
-            </span>
-            <span
-              :class="[
-                styles.data,
-                styles.column,
-                styles.date,
-              ]"
-            >
-              Date
-            </span>
-            <span
-              :class="[
-                styles.data,
-                styles.column,
-                styles.status,
-              ]"
-            >
-              Status
-            </span>
+          <div :class="[styles.row, 'text-body-bold']">
+            <span :class="[styles.data, styles.column, styles.id]"> ID </span>
+            <span :class="[styles.data, styles.column, styles.amound]"> Amound </span>
+            <span :class="[styles.data, styles.column, styles.date]"> Date </span>
+            <span :class="[styles.data, styles.column, styles.status]"> Status </span>
           </div>
 
-          <div
-            :class="[styles.row, 'text-body']"
-            v-for="(item, index) in selectTable"
-            :key="index"
-          >
-            <span
-              :class="[
-                styles.data,
-                styles.column,
-                styles.id,
-              ]"
-            >
+          <div :class="[styles.row, 'text-body']" v-for="(item, index) in selectTable" :key="index">
+            <span :class="[styles.data, styles.column, styles.id]">
               {{ item.id }}
             </span>
-            <span
-              :class="[
-                styles.data,
-                styles.column,
-                styles.amound,
-              ]"
-            >
+            <span :class="[styles.data, styles.column, styles.amound]">
               {{ item.amound }}
             </span>
-            <span
-              :class="[
-                styles.data,
-                styles.column,
-                styles.date,
-              ]"
-            >
+            <span :class="[styles.data, styles.column, styles.date]">
               {{ item.date }}
             </span>
             <span
@@ -225,56 +158,12 @@ const selectTable = computed(() => {
           <button :class="styles.nav" disabled>
             <ArrowLeft />
           </button>
-          <button
-            :class="[
-              styles.pagButton,
-              'text-body',
-              styles.active,
-            ]"
-          >
-            1
-          </button>
-          <button
-            :class="[
-              styles.pagButton,
-              'text-body',
-            ]"
-          >
-            2
-          </button>
-          <button
-            :class="[
-              styles.pagButton,
-              'text-body',
-            ]"
-          >
-            3
-          </button>
-          <button
-            :class="[
-              styles.pagButton,
-              'text-body',
-            ]"
-          >
-            4
-          </button>
-          <button
-            :class="[
-              styles.pagButton,
-              'text-body',
-            ]"
-            disabled
-          >
-            ...
-          </button>
-          <button
-            :class="[
-              styles.pagButton,
-              'text-body',
-            ]"
-          >
-            14
-          </button>
+          <button :class="[styles.pagButton, 'text-body', styles.active]">1</button>
+          <button :class="[styles.pagButton, 'text-body']">2</button>
+          <button :class="[styles.pagButton, 'text-body']">3</button>
+          <button :class="[styles.pagButton, 'text-body']">4</button>
+          <button :class="[styles.pagButton, 'text-body']" disabled>...</button>
+          <button :class="[styles.pagButton, 'text-body']">14</button>
           <button :class="styles.nav">
             <ArrowRight />
           </button>

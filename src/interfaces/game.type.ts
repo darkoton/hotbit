@@ -1,5 +1,5 @@
 export type GameCardType = {
-  title:string;
+  title: string;
   img: string;
   maxWin?: string;
   player?: {

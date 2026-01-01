@@ -47,17 +47,8 @@ const games: GameCardType[] = [
         <Button>View All</Button>
       </div>
 
-      <swiper
-        :class="styles.slider"
-        :slides-per-view="3"
-        space-between="12"
-        :grab-cursor="true"
-      >
-        <swiper-slide
-          :class="styles.slide"
-          v-for="game in games"
-          :key="game.img"
-        >
+      <swiper :class="styles.slider" :slides-per-view="3" space-between="12" :grab-cursor="true">
+        <swiper-slide :class="styles.slide" v-for="game in games" :key="game.img">
           <Game v-bind="game" />
         </swiper-slide>
       </swiper>

@@ -21,7 +21,7 @@ const value = defineModel<boolean>();
       }"
       :checked="value || checked"
       :disabled="disabled"
-      @change="value = $event.target.checked"
+      @change="value = ($event.target as HTMLInputElement).checked"
     />
     <span :class="styles.label">
       {{ label }}
