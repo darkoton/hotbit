@@ -13,6 +13,8 @@ defineProps<{
   coin?: Component;
   note?: string;
   error?: boolean;
+  after?: string | Component;
+  border?: boolean;
 }>();
 
 const value = defineModel<string>();
@@ -24,7 +26,9 @@ const value = defineModel<string>();
       <span v-if="label" class="text-h3">{{ label }}</span>
       <span v-if="subLabel" class="text-body"> ({{ subLabel }})</span>
     </span>
-    <div :class="[styles.input, error && styles.error]">
+    <div :class="[styles.input, error && styles.error, border && styles.border]">
+      <slot name="before" />
+
       <template v-if="variant === 'amount' && coin">
         <component :class="styles.coin" :is="coin" />
       </template>
@@ -39,6 +43,8 @@ const value = defineModel<string>();
           <button :class="[styles.amountButton, 'text-sub-body']">MAX</button>
         </div>
       </template>
+
+      <slot name="after" />
     </div>
 
     <span :class="['text-sub-body', styles.note, error && styles.error]" v-if="note">{{

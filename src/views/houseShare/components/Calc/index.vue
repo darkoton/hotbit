@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import styles from './style.module.scss';
 import Container from '@components/layouts/Container.vue';
 
@@ -7,6 +8,20 @@ import BTC from '@components/tokens/BTC.vue';
 import Logo from '@components/icons/Logo.vue';
 
 import Button from '@components/ui/Button/index.vue';
+
+import HotShareCalc from '@components/ui/modals/HotShareCalc/index.vue';
+
+const modalOpen = ref<boolean>(false);
+
+const closeModal = () => {
+  modalOpen.value = false;
+};
+
+const openModal = () => {
+  modalOpen.value = true;
+};
+
+const modalButton = ref<HTMLElement | null>(null);
 </script>
 
 <template>
@@ -65,9 +80,13 @@ import Button from '@components/ui/Button/index.vue';
             <Button :class="styles.button">2,432 <BTC /></Button>
           </div>
 
-          <Button :class="styles.button" variant="black-2">Try the rewards calculator</Button>
+          <Button @click="openModal" :class="styles.button" variant="black-2" ref="modalButton">
+            Try the rewards calculator
+          </Button>
         </div>
       </div>
     </div>
   </Container>
+
+  <HotShareCalc @close="closeModal" :show="modalOpen" :open-button="modalButton" />
 </template>

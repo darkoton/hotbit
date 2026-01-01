@@ -7,7 +7,7 @@ import Tabs from '@components/ui/Tabs/index.vue';
 import type { Tab } from '@/components/ui/Tabs/type';
 
 import Select from '@components/ui/Select/index.vue';
-import { OptionType } from '@components/ui/Select/type';
+import type { OptionType } from '@components/ui/Select/type';
 
 import Copy from '@components/ui/Copy/index.vue';
 import Button from '@components/ui/Button/index.vue';

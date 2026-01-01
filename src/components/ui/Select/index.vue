@@ -4,7 +4,7 @@ import styles from './style.module.scss';
 import Warning from '@components/icons/Warning.vue';
 import ArrowDown from '@components/icons/ArrowDown.vue';
 import { Transition, ref } from 'vue';
-import { OptionType } from './type';
+import type { OptionType } from './type';
 
 const value = defineModel<OptionType | null>();
 
@@ -26,20 +26,10 @@ useClickOutside(selectEl, () => {
 <template>
   <div ref="selectEl" :class="styles.select">
     <div :class="styles.selectWrapper">
-      <label v-if="label" class="text-h3">{{
-        label
-      }}</label>
+      <label v-if="label" class="text-h3">{{ label }}</label>
 
-      <button
-        :class="styles.button"
-        @click="open = !open"
-      >
-        <div
-          :class="[
-            styles.value,
-            'text-body-bold',
-          ]"
-        >
+      <button :class="styles.button" @click="open = !open">
+        <div :class="[styles.value, 'text-body-bold']">
           <template v-if="value">
             <img
               v-if="typeof value.img === 'string'"
@@ -48,11 +38,7 @@ useClickOutside(selectEl, () => {
               :class="styles.img"
             />
 
-            <component
-              v-else-if="value.img"
-              :is="value.img"
-              :class="styles.img"
-            />
+            <component v-else-if="value.img" :is="value.img" :class="styles.img" />
 
             {{ value.label }}
           </template>
@@ -61,12 +47,7 @@ useClickOutside(selectEl, () => {
           </template>
         </div>
 
-        <ArrowDown
-          :class="[
-            styles.arrow,
-            open && styles.open,
-          ]"
-        />
+        <ArrowDown :class="[styles.arrow, open && styles.open]" />
       </button>
 
       <Transition name="show-list">
@@ -82,23 +63,16 @@ useClickOutside(selectEl, () => {
               :class="[
                 styles.option,
                 'text-body',
-                value.value === option.value &&
-                  styles.active,
+                value && value.value === option.value && styles.active,
               ]"
             >
               <img
-                v-if="
-                  typeof option.img === 'string'
-                "
+                v-if="typeof option.img === 'string'"
                 :src="option.img"
                 alt="Image"
                 :class="styles.img"
               />
-              <component
-                v-else-if="option.img"
-                :is="option.img"
-                :class="styles.img"
-              />
+              <component v-else-if="option.img" :is="option.img" :class="styles.img" />
               {{ option.label }}
             </button>
           </li>
@@ -106,10 +80,7 @@ useClickOutside(selectEl, () => {
       </Transition>
     </div>
 
-    <span
-      v-if="note"
-      :class="[styles.note, 'text-body']"
-    >
+    <span v-if="note" :class="[styles.note, 'text-body']">
       <Warning :class="styles.noteIcon" />
       {{ note }}
     </span>

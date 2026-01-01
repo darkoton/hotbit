@@ -52,6 +52,18 @@
     font-size: 36px;
     color: $accent;
   }
+
+  & .title-icon-yellow {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: $accent;
+    padding: 6px;
+    font-size: 24px;
+  }
 }
 
 .text {
