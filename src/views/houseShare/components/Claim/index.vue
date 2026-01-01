@@ -20,37 +20,37 @@ const coins = ref<OptionType[]>([
   {
     label: 'BTC Coin',
     value: 'btc',
-    img: markRaw(BTC),
+    img: BTC,
   },
 
   {
     label: 'BCH Coin',
     value: 'bch',
-    img: markRaw(BCH),
+    img: BCH,
   },
 
   {
     label: 'BNB Coin',
     value: 'bnb',
-    img: markRaw(BNB),
+    img: BNB,
   },
 
   {
     label: 'USDT Coin',
     value: 'usdt',
-    img: markRaw(USDT),
+    img: USDT,
   },
 
   {
     label: 'LTC Coin',
     value: 'ltc',
-    img: markRaw(LTC),
+    img: LTC,
   },
 
   {
     label: 'DOGE Coin',
     value: 'doge',
-    img: markRaw(DOGE),
+    img: DOGE,
   },
 ]);
 const coinValue = ref<OptionType | null>(coins.value[0]);

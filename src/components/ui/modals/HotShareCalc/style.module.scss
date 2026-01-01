@@ -7,3 +7,48 @@
   grid-template-columns: repeat(3, minmax(100px, 1fr));
   gap: 12px;
 }
+
+.table {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  padding: 12px;
+  background-color: $bg-secondary;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 44px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &:not(:first-child) {
+    padding-top: 12px;
+    border-top: 1px solid $grey-dark;
+  }
+
+  &:not(:last-child) {
+    padding-bottom: 12px;
+    border-bottom: 1px solid $grey-dark;
+  }
+}
+
+.tableValue {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  svg {
+    font-size: 21px;
+  }
+}
+
+.tableNote {
+  text-align: center;
+}

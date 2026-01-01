@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, markRaw } from 'vue';
+import { ref } from 'vue';
 import styles from './style.module.scss';
 import Calculator from '@components/icons/Calculator.vue';
 import ModalDown from '../ModalDown.vue';
@@ -47,40 +47,40 @@ const coins = ref<OptionType[]>([
   {
     label: 'BTC Coin',
     value: 'btc',
-    img: markRaw(BTC),
+    img: BTC,
   },
 
   {
     label: 'BCH Coin',
     value: 'bch',
-    img: markRaw(BCH),
+    img: BCH,
   },
 
   {
     label: 'BNB Coin',
     value: 'bnb',
-    img: markRaw(BNB),
+    img: BNB,
   },
 
   {
     label: 'USDT Coin',
     value: 'usdt',
-    img: markRaw(USDT),
+    img: USDT,
   },
 
   {
     label: 'LTC Coin',
     value: 'ltc',
-    img: markRaw(LTC),
+    img: LTC,
   },
 
   {
     label: 'DOGe Coin',
     value: 'doge',
-    img: markRaw(DOGE),
+    img: DOGE,
   },
 ]);
-const coinValue = ref<OptionType | null>(coins.value[0]);
+const coinValue = ref<OptionType | null>(coins.value[0] || null);
 </script>
 
 <template>
@@ -91,32 +91,57 @@ const coinValue = ref<OptionType | null>(coins.value[0]);
       House Share Calculator
     </h3>
 
-    <Field label="Total locked supply" placeholder="777,777" type="number">
-      <template #after>
-        <span class="text-body text-accent">Hotbit Coins</span>
-      </template>
-    </Field>
+    <div :class="styles.fields">
+      <Field label="Total locked supply" placeholder="777,777" type="number">
+        <template #after>
+          <span class="text-body text-accent">Hotbit Coins</span>
+        </template>
+      </Field>
 
-    <Field label="Total supply" placeholder="777,77" type="number">
-      <template #after>
-        <span class="text-body text-accent">Hotbit Coins</span>
-      </template>
-    </Field>
+      <Field label="Total supply" placeholder="777,77" type="number">
+        <template #after>
+          <span class="text-body text-accent">Hotbit Coins</span>
+        </template>
+      </Field>
 
-    <Select
-      placeholder="Select Your VIP Level"
-      v-model="levelValue"
-      :options="levelOptions"
-      label="Your VIP level"
-    />
+      <Select
+        placeholder="Select Your VIP Level"
+        v-model="levelValue"
+        :options="levelOptions"
+        label="Your VIP level"
+      />
 
-    <Field border label="Avg. Montly Platform volume" placeholder="Volume" type="number" />
+      <Field border label="Avg. Montly Platform volume" placeholder="Volume" type="number" />
+      <Select
+        placeholder="Coin"
+        v-model="coinValue"
+        :options="coins"
+        label="Select a coin for your rewards"
+      />
+    </div>
 
-    <Select
-      placeholder="Coin"
-      v-model="coinValue"
-      :options="coins"
-      label="Select a coin for your rewards"
-    />
+    <div :class="['text-body', styles.table]">
+      <div :class="styles.row">
+        <span>Total Stack</span>
+        <span class="text-body-bold">79,410 $WAGE <span class="text-green">(+2,1%)</span></span>
+      </div>
+
+      <div :class="styles.row">
+        <span>Estimated Rewards / 2 hours</span>
+        <span :class="['text-body-bold', styles.tableValue]"> $0.68 <BTC /> </span>
+      </div>
+
+      <div :class="styles.row">
+        <span>Estimated Monthly Rewards</span>
+        <span :class="['text-body-bold', styles.tableValue]"> $245.24 <BTC /> </span>
+      </div>
+
+      <div :class="styles.row">
+        <p :class="['text-sub-body text-grey-light', styles.tableNote]">
+          These estimations have an average 2% house edge. The rewards are calculated based on the
+          real edge from each player’s games.
+        </p>
+      </div>
+    </div>
   </ModalDown>
 </template>
