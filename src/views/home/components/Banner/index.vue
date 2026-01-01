@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import styles from './styles.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import Container from '@components/layouts/Container.vue';
-import bannerImg from './assets/banner.png';
 import { Pagination } from 'swiper/modules';
-import RewardsModal from '@components/ui/modals/Rewards/index.vue';
 
 // @ts-ignore
 import 'swiper/css/pagination';
@@ -13,18 +11,73 @@ import 'swiper/css/pagination';
 import 'swiper/css';
 import type { Swiper as SwiperType } from 'swiper';
 
+// Props
+interface Banner {
+  id?: number | string;
+  image?: string;
+  url?: string;
+  title?: string;
+  [key: string]: any;
+}
+
+const props = withDefaults(
+  defineProps<{
+    banners?: Banner[];
+  }>(),
+  {
+    banners: () => [],
+  }
+);
+
 const pagination = ref(null);
 const modules = [Pagination];
 
-const sliderBanner = ref(null);
+// Фільтруємо банери, які мають зображення
+const validBanners = computed(() => {
+  return props.banners.filter(
+    (banner) =>
+      banner.image ||
+      banner.img ||
+      banner.image_url
+  );
+});
 
-const gameRewards = ref<boolean>(false);
+// Отримуємо URL зображення для банеру
+const getBannerImage = (
+  banner: Banner
+): string => {
+  return (
+    banner.image ||
+    banner.img ||
+    banner.image_url ||
+    ''
+  );
+};
 
-function closeRewards() {
-  gameRewards.value = false;
-}
+// Отримуємо alt текст для зображення
+const getBannerAlt = (
+  banner: Banner,
+  index: number
+): string => {
+  return (
+    banner.title ||
+    banner.alt ||
+    `Banner ${index + 1}`
+  );
+};
 
-function renderPagination(swiper: SwiperType, current: number, total: number): string {
+// Обробка кліку на банер
+const handleBannerClick = (banner: Banner) => {
+  if (banner.url) {
+    window.location.href = banner.url;
+  }
+};
+
+function renderPagination(
+  swiper: SwiperType,
+  current: number,
+  total: number
+): string {
   let bullets = '';
   for (let i = 1; i <= total; i++) {
     bullets += `<span class="${styles.bullet} ${i === current ? styles.active : ''}"></span>`;
@@ -34,11 +87,9 @@ function renderPagination(swiper: SwiperType, current: number, total: number): s
 </script>
 
 <template>
-  <Container>
+  <Container v-if="validBanners.length > 0">
     <div :class="styles.body">
       <swiper
-        @click="gameRewards = true"
-        ref="sliderBanner"
         :modules="modules"
         :grab-cursor="true"
         :class="styles.slider"
@@ -51,14 +102,29 @@ function renderPagination(swiper: SwiperType, current: number, total: number): s
           clickable: true,
         }"
       >
-        <swiper-slide v-for="i in 3" :key="i">
-          <img :class="styles.img" width="370" height="232" :src="bannerImg" alt="banner" />
+        <swiper-slide
+          v-for="(banner, index) in validBanners"
+          :key="banner.id || index"
+        >
+          <img
+            :class="[
+              styles.img,
+              banner.url ? styles.clickable : '',
+            ]"
+            width="370"
+            height="232"
+            :src="getBannerImage(banner)"
+            :alt="getBannerAlt(banner, index)"
+            @click="handleBannerClick(banner)"
+          />
         </swiper-slide>
       </swiper>
 
-      <div :class="styles.pagination" ref="pagination"></div>
+      <div
+        :class="styles.pagination"
+        ref="pagination"
+        v-if="validBanners.length > 1"
+      ></div>
     </div>
   </Container>
-
-  <RewardsModal @close="closeRewards" :show="gameRewards" :open-button="sliderBanner" />
 </template>

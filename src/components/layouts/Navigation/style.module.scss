@@ -30,7 +30,7 @@
   justify-content: center;
   align-items: center;
 
-  &[class*='router-link-active'] {
+  &[class*="router-link-active"] {
     color: $accent;
     background-color: $bg-popup;
   }

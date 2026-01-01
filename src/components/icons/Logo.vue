@@ -8,7 +8,12 @@
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
   >
-    <rect x="2" width="14" height="18" fill="url(#pattern0_8038_18380)" />
+    <rect
+      x="2"
+      width="14"
+      height="18"
+      fill="url(#pattern0_8038_18380)"
+    />
     <defs>
       <pattern
         id="pattern0_8038_18380"

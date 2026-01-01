@@ -14,7 +14,11 @@ defineEmits(['select']);
   <div :class="styles.tabs">
     <button
       @click="$emit('select', tab.value)"
-      :class="['text-body-bold', styles.tab, tab.value === value && styles.active]"
+      :class="[
+        'text-body-bold',
+        styles.tab,
+        tab.value === value && styles.active,
+      ]"
       v-for="tab in tabs"
       :key="tab.value"
     >

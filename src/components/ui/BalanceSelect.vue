@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import type { Component } from 'vue';
-import { ref } from 'vue';
-import BTC from '@components/tokens/BTC.vue';
+import { ref, computed } from 'vue';
+import BTC from '@/components/tokens/BTC.vue';
 import ArrowDown from '@components/icons/ArrowDown.vue';
 import Wallet from '@components/icons/Wallet.vue';
 import { useClickOutside } from '@/composables/useClickOutside';
-import WalletModal from '@components/ui/modals/Wallet/index.vue';
 
 type Item = {
   value: string;
   price: string;
   name: string;
-  icon: Component;
+  icon?: Component;
+  iconUrl?: string;
 };
 
 const { value = 0, items = [] } = defineProps<{
@@ -24,8 +24,39 @@ defineEmits(['select']);
 const balance = ref<null | HTMLElement>(null);
 const open = ref(false);
 
-const walletButton = ref<HTMLElement | null>(null);
-const walletOpen = ref<boolean>(false);
+// Отримуємо іконку першого токену
+const selectedTokenIcon = computed(() => {
+  if (items.length > 0) {
+    const firstItem = items[0];
+    if (firstItem && firstItem.icon) {
+      return firstItem.icon;
+    }
+    if (firstItem && firstItem.iconUrl) {
+      return firstItem.iconUrl;
+    }
+  }
+  return BTC;
+});
+
+// Перевіряємо, чи це URL іконки
+const isIconUrl = computed(() => {
+  if (items.length > 0) {
+    const firstItem = items[0];
+    return (
+      firstItem &&
+      !firstItem.icon &&
+      !!firstItem.iconUrl
+    );
+  }
+  return false;
+});
+
+// Форматуємо значення для відображення
+const formattedValue = computed(() => {
+  return typeof value === 'number'
+    ? value.toFixed(2)
+    : '0.00';
+});
 
 useClickOutside(balance, () => {
   open.value = false;
@@ -34,15 +65,28 @@ useClickOutside(balance, () => {
 
 <template>
   <div class="balance" ref="balance">
-    <WalletModal :show="walletOpen" :open-button="walletButton" @close="walletOpen = false" />
     <button class="button" @click="open = !open">
-      <span class="value text-body-bold">$ {{ value }}</span>
-      <BTC class="token" />
-      <ArrowDown :class="['arrow', open && 'rotate']" />
+      <span class="value text-body-bold"
+        >$ {{ formattedValue }}</span
+      >
+      <component
+        v-if="!isIconUrl"
+        :is="selectedTokenIcon"
+        class="token"
+      />
+      <img
+        v-else
+        :src="selectedTokenIcon as string"
+        class="token token-img"
+        alt="Token"
+      />
+      <ArrowDown
+        :class="['arrow', open && 'rotate']"
+      />
     </button>
-    <button ref="walletButton" class="wallet" @click="walletOpen = !walletOpen">
+    <div class="wallet">
       <Wallet />
-    </button>
+    </div>
 
     <div class="dropdown" v-if="open">
       <div class="head">
@@ -50,15 +94,39 @@ useClickOutside(balance, () => {
       </div>
       <div class="list">
         <div class="list__wrapper">
-          <button @click="$emit('select')" class="item" v-for="(item, index) in items" :key="index">
+          <button
+            @click="$emit('select')"
+            class="item"
+            v-for="(item, index) in items"
+            :key="index"
+          >
             <div class="item__left">
-              <span class="item__value text-body-bold">{{ item.value }}</span>
-              <span class="item__price text-notification">{{ item.price }}</span>
+              <span
+                class="item__value text-body-bold"
+                >{{ item.value }}</span
+              >
+              <span
+                class="item__price text-notification"
+                >{{ item.price }}</span
+              >
             </div>
 
             <div class="item__token">
-              <span class="item__token_name text-body">{{ item.name }}</span>
-              <component :is="item.icon" class="item__token_icon" />
+              <span
+                class="item__token_name text-body"
+                >{{ item.name }}</span
+              >
+              <component
+                v-if="item.icon"
+                :is="item.icon"
+                class="item__token_icon"
+              />
+              <img
+                v-else-if="item.iconUrl"
+                :src="item.iconUrl"
+                class="item__token_icon item__token_icon-img"
+                :alt="item.name"
+              />
             </div>
           </button>
         </div>
@@ -90,6 +158,12 @@ useClickOutside(balance, () => {
 .token {
   font-size: 21px;
   margin-right: 8px;
+
+  &.token-img {
+    width: 21px;
+    height: 21px;
+    object-fit: contain;
+  }
 }
 
 .arrow {
@@ -149,7 +223,12 @@ useClickOutside(balance, () => {
   &__wrapper {
     max-height: 240px;
     overflow: auto;
-    @include scrollbars(2px, $accent, #d9d9d9, 100px);
+    @include scrollbars(
+      2px,
+      $accent,
+      #d9d9d9,
+      100px
+    );
   }
 }
 
@@ -208,6 +287,10 @@ useClickOutside(balance, () => {
     &_icon {
       width: 14px;
       height: 14px;
+
+      &-img {
+        object-fit: contain;
+      }
     }
   }
 }

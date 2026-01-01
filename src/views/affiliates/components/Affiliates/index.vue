@@ -26,13 +26,17 @@ const tabs = ref<Tab[]>([
   },
 ]);
 
-const selectTab = ref<string | null>(tabs.value[0]?.value || null);
+const selectTab = ref<string | null>(
+  tabs.value[0]?.value || null
+);
 </script>
 
 <template>
   <Container>
     <div :class="styles.body">
-      <h2 :class="['title-section', styles.title]">
+      <h2
+        :class="['title-section', styles.title]"
+      >
         <People class="title-icon" />
         <span>Affiliates</span>
       </h2>
@@ -43,96 +47,158 @@ const selectTab = ref<string | null>(tabs.value[0]?.value || null);
         text="t.me/hotbitbot/?start=Ansduf"
       />
 
-      <Tabs :tabs="tabs" @select="(v) => (selectTab = v)" :class="styles.tabs" :value="selectTab" />
+      <Tabs
+        :tabs="tabs"
+        @select="(v) => (selectTab = v)"
+        :class="styles.tabs"
+        :value="selectTab"
+      />
 
-      <ul v-if="selectTab === 'this-month'" :class="styles.info">
+      <ul
+        v-if="selectTab === 'this-month'"
+        :class="styles.info"
+      >
         <li :class="styles.infoItem">
-          <span class="text-body"> Invited Users </span>
+          <span class="text-body">
+            Invited Users
+          </span>
           <span class="text-body"> 24 </span>
         </li>
 
         <li :class="styles.infoItem">
-          <span class="text-body"> Referrals Wagered </span>
+          <span class="text-body">
+            Referrals Wagered
+          </span>
           <span class="text-body"> $577,56 </span>
         </li>
 
         <li :class="styles.infoItem">
-          <span class="text-body"> Your Commission </span>
+          <span class="text-body">
+            Your Commission
+          </span>
           <span class="text-body"> $54 </span>
         </li>
 
         <li :class="styles.infoItem">
-          <span class="text-body-bold"> Total Affiliates Payout </span>
-          <span class="text-body-bold text-green"> $3,850,12 </span>
+          <span class="text-body-bold">
+            Total Affiliates Payout
+          </span>
+          <span class="text-body-bold text-green">
+            $3,850,12
+          </span>
         </li>
       </ul>
 
-      <ul v-if="selectTab === 'last-month'" :class="styles.info">
+      <ul
+        v-if="selectTab === 'last-month'"
+        :class="styles.info"
+      >
         <li :class="styles.infoItem">
-          <span class="text-body"> Invited Users2 </span>
+          <span class="text-body">
+            Invited Users2
+          </span>
           <span class="text-body"> 24 </span>
         </li>
 
         <li :class="styles.infoItem">
-          <span class="text-body"> Referrals Wagered2 </span>
+          <span class="text-body">
+            Referrals Wagered2
+          </span>
           <span class="text-body"> $577,56 </span>
         </li>
 
         <li :class="styles.infoItem">
-          <span class="text-body"> Your Commission2 </span>
+          <span class="text-body">
+            Your Commission2
+          </span>
           <span class="text-body"> $54 </span>
         </li>
 
         <li :class="styles.infoItem">
-          <span class="text-body-bold"> Total Affiliates Payout2 </span>
-          <span class="text-body-bold text-green"> $3,850,12 </span>
+          <span class="text-body-bold">
+            Total Affiliates Payout2
+          </span>
+          <span class="text-body-bold text-green">
+            $3,850,12
+          </span>
         </li>
       </ul>
 
-      <ul v-if="selectTab === 'all-time'" :class="styles.info">
+      <ul
+        v-if="selectTab === 'all-time'"
+        :class="styles.info"
+      >
         <li :class="styles.infoItem">
-          <span class="text-body"> Invited Users3 </span>
+          <span class="text-body">
+            Invited Users3
+          </span>
           <span class="text-body"> 24 </span>
         </li>
 
         <li :class="styles.infoItem">
-          <span class="text-body"> Referrals Wagered3 </span>
+          <span class="text-body">
+            Referrals Wagered3
+          </span>
           <span class="text-body"> $577,56 </span>
         </li>
 
         <li :class="styles.infoItem">
-          <span class="text-body"> Your Commission3 </span>
+          <span class="text-body">
+            Your Commission3
+          </span>
           <span class="text-body"> $54 </span>
         </li>
 
         <li :class="styles.infoItem">
-          <span class="text-body-bold"> Total Affiliates Payout3 </span>
-          <span class="text-body-bold text-green"> $3,850,12 </span>
+          <span class="text-body-bold">
+            Total Affiliates Payout3
+          </span>
+          <span class="text-body-bold text-green">
+            $3,850,12
+          </span>
         </li>
       </ul>
 
       <div :class="styles.calculation">
         <div :class="styles.calculationStats">
           <span class="text-body"
-            ><span class="text-body-bold text-accent">Commission Rate:</span> 25% of house
-            edge.</span
+            ><span
+              class="text-body-bold text-accent"
+              >Commission Rate:</span
+            >
+            25% of house edge.</span
           >
 
           <span class="text-body"
-            ><span class="text-body-bold text-accent">Payment Cycle:</span> Paid monthly in
-            USDC.</span
+            ><span
+              class="text-body-bold text-accent"
+              >Payment Cycle:</span
+            >
+            Paid monthly in USDC.</span
           >
         </div>
 
-        <Button variant="black-2" :class="styles.calculationButton">See calculation</Button>
+        <Button
+          variant="black-2"
+          :class="styles.calculationButton"
+          >See calculation</Button
+        >
 
         <div :class="styles.calculationBottom">
-          <p class="text-sub-body text-grey-light">
-            Each of our games comes with a unique house edge. To calculate your commission, you can
-            use this formula:
+          <p
+            class="text-sub-body text-grey-light"
+          >
+            Each of our games comes with a unique
+            house edge. To calculate your
+            commission, you can use this formula:
           </p>
-          <span :class="['text-body', styles.calculationFormula]"
-            >(Edge * Wagered / 2) * Commission Rate</span
+          <span
+            :class="[
+              'text-body',
+              styles.calculationFormula,
+            ]"
+            >(Edge * Wagered / 2) * Commission
+            Rate</span
           >
         </div>
       </div>

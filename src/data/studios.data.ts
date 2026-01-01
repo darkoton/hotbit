@@ -1,24 +1,24 @@
-import type { StudioCardType } from '@interfaces/studios.type';
+import type { StudioCardType } from '@interfaces/studios.type'
 
-import pragmatic from '@assets/imgs/studios/pragmatic.png';
-import hacksaw from '@assets/imgs/studios/hacksaw.png';
-import nolimit from '@assets/imgs/studios/nolimit.png';
+import pragmatic from '@assets/imgs/studios/pragmatic.png'
+import hacksaw from '@assets/imgs/studios/hacksaw.png'
+import nolimit from '@assets/imgs/studios/nolimit.png'
 
 export const studios: StudioCardType[] = [
-  {
+    {
     src: pragmatic,
-    alt: 'Pragmatic',
-  },
-  {
+    alt: 'Pragmatic'
+},
+{
     src: hacksaw,
-    alt: 'HackSaw',
-  },
-  {
+    alt: 'HackSaw'
+},
+{
     src: nolimit,
-    alt: 'NoLimit',
-  },
-  {
+    alt: 'NoLimit'
+},
+{
     src: pragmatic,
-    alt: 'Pragmatic',
-  },
-];
+    alt: 'Pragmatic'
+}
+]

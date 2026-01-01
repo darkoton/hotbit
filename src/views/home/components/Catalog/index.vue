@@ -98,7 +98,11 @@ const searchResult = computed(() => {
   const result: GameCardType[] = [];
 
   feeds.forEach((feed) => {
-    result.push(...feed.filter((game) => game.title.includes(searchText.value)));
+    result.push(
+      ...feed.filter((game) =>
+        game.title.includes(searchText.value)
+      )
+    );
   });
 
   return result;
@@ -109,7 +113,13 @@ const searchResult = computed(() => {
   <Container :class="styles.container">
     <div :class="styles.body">
       <div :class="styles.head">
-        <h2 :class="['title-section', styles.title, searchOpen && styles.hidden]">
+        <h2
+          :class="[
+            'title-section',
+            styles.title,
+            searchOpen && styles.hidden,
+          ]"
+        >
           <Star class="title-icon" />
           Catalog
         </h2>
@@ -121,7 +131,10 @@ const searchResult = computed(() => {
         />
       </div>
 
-      <div :class="styles.feeds" v-if="searchResult === null">
+      <div
+        :class="styles.feeds"
+        v-if="searchResult === null"
+      >
         <swiper
           v-for="(feed, index) in feeds"
           :key="index"
@@ -130,7 +143,11 @@ const searchResult = computed(() => {
           space-between="12"
           :grab-cursor="true"
         >
-          <swiper-slide :class="styles.slide" v-for="game in feed" :key="game.title">
+          <swiper-slide
+            :class="styles.slide"
+            v-for="game in feed"
+            :key="game.title"
+          >
             <Game v-bind="game" />
           </swiper-slide>
         </swiper>
@@ -138,7 +155,11 @@ const searchResult = computed(() => {
 
       <div :class="styles.searchResult" v-else>
         <span class="text-h3">
-          {{ searchResult.length > 0 ? `Found - ${searchResult.length} game` : 'Nothing found' }}
+          {{
+            searchResult.length > 0
+              ? `Found - ${searchResult.length} game`
+              : 'Nothing found'
+          }}
         </span>
 
         <swiper
@@ -148,13 +169,24 @@ const searchResult = computed(() => {
           space-between="12"
           :grab-cursor="true"
         >
-          <swiper-slide :class="styles.slide" v-for="game in searchResult" :key="game.title">
+          <swiper-slide
+            :class="styles.slide"
+            v-for="game in searchResult"
+            :key="game.title"
+          >
             <Game v-bind="game" />
           </swiper-slide>
         </swiper>
 
         <div v-else :class="styles.recommends">
-          <span :class="['text-body-bold', styles.recommendsTitle]"> Recomended Game </span>
+          <span
+            :class="[
+              'text-body-bold',
+              styles.recommendsTitle,
+            ]"
+          >
+            Recomended Game
+          </span>
 
           <swiper
             :class="styles.slider"
@@ -162,7 +194,11 @@ const searchResult = computed(() => {
             space-between="12"
             :grab-cursor="true"
           >
-            <swiper-slide :class="styles.slide" v-for="game in feeds[1]" :key="game.title">
+            <swiper-slide
+              :class="styles.slide"
+              v-for="game in feeds[1]"
+              :key="game.title"
+            >
               <Game v-bind="game" />
             </swiper-slide>
           </swiper>

@@ -1,42 +1,64 @@
 .body {
-  padding-top: 22px;
-  padding-bottom: 44px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
+    padding-top: 22px;
+    padding-bottom: 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
 }
 
 .text {
-  color: $grey-light;
-  text-align: center;
+    color: $grey-light;
+    text-align: center;
+    
+    // Стилі для посилань всередині row1_links
+    a {
+        color: $white;
+        text-decoration: underline;
+        text-decoration-skip-ink: none;
+        
+        @media (any-hover:hover) {
+            cursor: pointer;
+            transition: all 0.3s ease 0s;
+            
+            &:hover {
+                color: $accent;
+            }
+        }
+    }
 }
 
 .link {
-  color: $white;
+    color: $white;
 
-  @media (any-hover: hover) {
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
+    @media (any-hover:hover) {
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
 
-    &:hover {
-      color: $accent;
+        &:hover {
+            color: $accent;
+        }
     }
-  }
 }
 
 .underline {
-  text-decoration: underline;
-  text-decoration-skip-ink: none;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
 }
 
 .gambling {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .icon {
-  color: $accent;
-  font-size: 24px;
+    color: $accent;
+    font-size: 24px;
+}
+
+.iconImg {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
 }

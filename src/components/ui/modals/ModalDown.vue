@@ -1,5 +1,10 @@
 <script setup lang="ts">
-import { nextTick, onMounted, ref, watch } from 'vue';
+import {
+  nextTick,
+  onMounted,
+  ref,
+  watch,
+} from 'vue';
 import Container from '@components/layouts/Container.vue';
 import { useClickOutside } from '@composables/useClickOutside';
 import { useScrollLock } from '@composables/useLockScroll';
@@ -71,7 +76,10 @@ function onMouseDown(e: MouseEvent) {
   startDrag(e.clientY);
 
   // Ловим движение мыши глобально, чтобы не слетало
-  window.addEventListener('mousemove', onMouseMove);
+  window.addEventListener(
+    'mousemove',
+    onMouseMove
+  );
   window.addEventListener('mouseup', onMouseUp);
 }
 
@@ -82,15 +90,25 @@ function onMouseMove(e: MouseEvent) {
 function onMouseUp() {
   endDrag();
 
-  window.removeEventListener('mousemove', onMouseMove);
-  window.removeEventListener('mouseup', onMouseUp);
+  window.removeEventListener(
+    'mousemove',
+    onMouseMove
+  );
+  window.removeEventListener(
+    'mouseup',
+    onMouseUp
+  );
 }
 </script>
 
 <template>
   <Teleport to="body">
     <Transition name="slide-up">
-      <Container ref="bodyModal" class="container" v-if="show">
+      <Container
+        ref="bodyModal"
+        class="container"
+        v-if="show"
+      >
         <div
           class="visor"
           @touchstart="onTouchStart"
@@ -106,7 +124,11 @@ function onMouseUp() {
     </Transition>
 
     <Transition name="fade">
-      <div class="backward" v-if="show" @click="$emit('close')"></div>
+      <div
+        class="backward"
+        v-if="show"
+        @click="$emit('close')"
+      ></div>
     </Transition>
   </Teleport>
 </template>
@@ -150,7 +172,12 @@ function onMouseUp() {
 .body {
   flex: 1 1 auto;
   overflow: auto;
-  @include scrollbars(0px, transparent, transparent, 0px);
+  @include scrollbars(
+    0px,
+    transparent,
+    transparent,
+    0px
+  );
 }
 
 .slide-up-enter-from {

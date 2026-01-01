@@ -1,4 +1,4 @@
-@use 'sass:math';
+@use "sass:math";
 
 //< " RESPONSIVE PROPERTY " >=============================================================================================================>//
 @mixin fluid($property, $max, $min, $min-screen: 320px, $max-screen: 430px) {
@@ -29,17 +29,11 @@
   border-radius: $borderRadius;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     z-index: -1;
     inset: 0px;
-    background: linear-gradient(
-      $dir,
-      $from 2.29%,
-      color-mix(in srgb, $from, $to),
-      49.7%,
-      $to 68.56%
-    );
+    background: linear-gradient($dir, $from 2.29%, color-mix(in srgb, $from, $to), 49.7%, $to 68.56%);
     padding: 2px;
     border-radius: $borderRadius;
     -webkit-mask:
@@ -49,13 +43,8 @@
     transition: all 0.3s ease 0s;
   }
   &::after {
-    content: '';
-    background: linear-gradient(
-      $dir,
-      $from 2.29%,
-      color-mix(in srgb, $from, $to) 49.7%,
-      $to 68.56%
-    );
+    content: "";
+    background: linear-gradient($dir, $from 2.29%, color-mix(in srgb, $from, $to) 49.7%, $to 68.56%);
     -webkit-mask:
       linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
@@ -95,12 +84,7 @@
 }
 
 //< " SCROLLBAR " >
-@mixin scrollbars(
-  $size: 10px,
-  $foreground-color: #999,
-  $background-color: #333,
-  $border-radius: 0px
-) {
+@mixin scrollbars($size: 10px, $foreground-color: #999, $background-color: #333, $border-radius: 0px) {
   // For Chrome & Safari
   &::-webkit-scrollbar {
     width: $size;

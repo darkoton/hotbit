@@ -10,7 +10,9 @@ const { progressValue = 0 } = defineProps<{
 }>();
 
 const profileOpen = ref<boolean>(false);
-const profileButton = ref<HTMLElement | null>(null);
+const profileButton = ref<HTMLElement | null>(
+  null
+);
 
 const openProfile = () => {
   profileOpen.value = true;
@@ -22,11 +24,20 @@ const closeProfile = () => {
 </script>
 
 <template>
-  <button class="account" @click="openProfile" ref="profileButton">
+  <button
+    class="account"
+    @click="openProfile"
+    ref="profileButton"
+  >
     <div class="top">
       <Avatar :src="avatar" size="28px" />
 
-      <ArrowDown :class="['arrow', profileOpen && 'rotate']" />
+      <ArrowDown
+        :class="[
+          'arrow',
+          profileOpen && 'rotate',
+        ]"
+      />
     </div>
 
     <div class="progress">
@@ -34,7 +45,11 @@ const closeProfile = () => {
     </div>
   </button>
 
-  <Profile @close="closeProfile" :show="profileOpen" :open-button="profileButton" />
+  <Profile
+    @close="closeProfile"
+    :show="profileOpen"
+    :open-button="profileButton"
+  />
 </template>
 
 <style lang="scss" scoped>

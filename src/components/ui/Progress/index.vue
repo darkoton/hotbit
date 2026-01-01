@@ -13,7 +13,10 @@ const {
 </script>
 
 <template>
-  <div :class="[styles.progress, styles[variant]]" :style="{ height: size + 'px' }">
+  <div
+    :class="[styles.progress, styles[variant]]"
+    :style="{ height: size + 'px' }"
+  >
     <div
       :style="{
         width: value + '%',

@@ -8,7 +8,11 @@ import Refresh from '@components/icons/Refresh.vue';
 
 const value = defineModel<string>();
 
-const emit = defineEmits(['open', 'close', 'refresh']);
+const emit = defineEmits([
+  'open',
+  'close',
+  'refresh',
+]);
 
 const search = ref(null);
 const open = ref(false);
@@ -25,8 +29,14 @@ useClickOutside(search, () => {
 </script>
 
 <template>
-  <div ref="search" :class="[styles.search, open && styles.open]">
-    <div :class="styles.field" @click="handleOpen">
+  <div
+    ref="search"
+    :class="[styles.search, open && styles.open]"
+  >
+    <div
+      :class="styles.field"
+      @click="handleOpen"
+    >
       <button :class="styles.button">
         <Search />
       </button>
@@ -38,8 +48,17 @@ useClickOutside(search, () => {
       />
     </div>
 
-    <div :class="[styles.refreshBody, open && styles.visible]">
-      <button @click="$emit('refresh')" :class="styles.refresh" :disabled="!value?.trim().length">
+    <div
+      :class="[
+        styles.refreshBody,
+        open && styles.visible,
+      ]"
+    >
+      <button
+        @click="$emit('refresh')"
+        :class="styles.refresh"
+        :disabled="!value?.trim().length"
+      >
         <Refresh />
       </button>
     </div>
