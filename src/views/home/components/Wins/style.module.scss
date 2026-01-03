@@ -23,6 +23,33 @@
   }
 }
 
+.tags {
+  display: flex;
+  gap: 12px;
+}
+
+.tag {
+  background-color: $bg-secondary;
+  border-radius: 8px;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease 0s;
+  color: $grey-light;
+
+  @media (any-hover: hover) {
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      border-color: $bg-popup;
+    }
+  }
+
+  &.active {
+    border-color: $accent;
+    color: $white;
+  }
+}
+
 .slider {
   width: 100%;
   overflow: visible;
@@ -32,7 +59,6 @@
   width: 58px;
   height: auto;
 }
-
 
 @keyframes blink {
   0% {

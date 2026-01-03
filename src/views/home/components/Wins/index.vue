@@ -34,24 +34,42 @@ const wins = ref<Win[]>(props.initialWins);
 
 // Функція для отримання URL зображення гри
 const getGameLogo = (win: Win): string => {
-  return win.game_logo || '/telegram-app/assets/images/game/blackjack.svg';
+  return (
+    win.game_logo ||
+    '/telegram-app/assets/images/game/blackjack.svg'
+  );
 };
 
 // Функція для отримання замаскованого імені користувача
 const getMaskedUsername = (win: Win): string => {
-  return win.username_masked || win.username || 'Player';
+  return (
+    win.username_masked ||
+    win.username ||
+    'Player'
+  );
 };
 
 // Функція для форматування суми виграшу
 const formatMoney = (win: Win): string => {
-  const amount = win.main_amount || win.amount || win.money || win.win || 0;
-  const numAmount = typeof amount === 'string' ? parseFloat(amount) : amount;
+  const amount =
+    win.main_amount ||
+    win.amount ||
+    win.money ||
+    win.win ||
+    0;
+  const numAmount =
+    typeof amount === 'string'
+      ? parseFloat(amount)
+      : amount;
   return `$${numAmount.toFixed(2)}`;
 };
 
 // Спостерігаємо за змінами в window.__DATA__.wins
 const updateWins = () => {
-  if ((window as any).__DATA__?.wins && Array.isArray((window as any).__DATA__.wins)) {
+  if (
+    (window as any).__DATA__?.wins &&
+    Array.isArray((window as any).__DATA__.wins)
+  ) {
     wins.value = (window as any).__DATA__.wins;
   }
 };
@@ -75,14 +93,18 @@ onMounted(() => {
   // Перевіряємо зміни в window.__DATA__.wins через polling
   const checkWins = () => {
     if ((window as any).__DATA__?.wins) {
-      const currentWins = (window as any).__DATA__.wins;
+      const currentWins = (window as any).__DATA__
+        .wins;
       if (Array.isArray(currentWins)) {
         // Порівнюємо за довжиною та першим елементом для швидкості
-        const hasChanged = 
-          currentWins.length !== wins.value.length ||
-          (currentWins.length > 0 && wins.value.length > 0 && 
-           JSON.stringify(currentWins[0]) !== JSON.stringify(wins.value[0]));
-        
+        const hasChanged =
+          currentWins.length !==
+            wins.value.length ||
+          (currentWins.length > 0 &&
+            wins.value.length > 0 &&
+            JSON.stringify(currentWins[0]) !==
+              JSON.stringify(wins.value[0]));
+
         if (hasChanged) {
           wins.value = [...currentWins];
         }
@@ -101,13 +123,43 @@ onMounted(() => {
 </script>
 
 <template>
-  <Container :class="styles.container" v-if="wins.length > 0">
+  <Container
+    :class="styles.container"
+    v-if="wins.length > 0"
+  >
     <div :class="styles.body">
       <h2
         :class="[styles.title, 'title-section']"
       >
         Live Wins
       </h2>
+
+      <div :class="styles.tags">
+        <button
+          :class="[
+            styles.tag,
+            styles.active,
+            'text-body',
+          ]"
+        >
+          All
+        </button>
+        <button
+          :class="[styles.tag, 'text-body']"
+        >
+          Month
+        </button>
+        <button
+          :class="[styles.tag, 'text-body']"
+        >
+          Week
+        </button>
+        <button
+          :class="[styles.tag, 'text-body']"
+        >
+          Day
+        </button>
+      </div>
 
       <swiper
         :class="styles.slider"
