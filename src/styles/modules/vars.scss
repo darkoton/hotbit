@@ -1,6 +1,6 @@
 $bg: #0b1723;
 $bg-secondary: #14242f;
-$bg-popup: #192B38;
+$bg-popup: #192b38;
 $white: #fff;
 $accent: #f2a90c;
 $grey-dark: #283036;
@@ -12,3 +12,20 @@ $extra-light: #fbfbfb;
 
 $fontPoppins: "Poppins", sans-serif;
 $fontSFProRounded: "SF Pro Rounded", sans-serif;
+
+:root {
+  --bg: #0b1723;
+  --bg-secondary: #14242f;
+  --bg-popup: #192b38;
+  --white: #ffffff;
+  --accent: #f2a90c;
+  --grey-dark: #283036;
+  --grey: #626262;
+  --grey-light: #acacac;
+  --red: #e83241;
+  --green: #43b240;
+  --extra-light: #fbfbfb;
+
+  --font-poppins: "Poppins", sans-serif;
+  --font-sf-pro-rounded: "SF Pro Rounded", sans-serif;
+}

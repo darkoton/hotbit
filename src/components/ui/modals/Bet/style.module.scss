@@ -1,0 +1,450 @@
+.bet {
+  margin-bottom: 44px;
+}
+
+.id {
+  margin-bottom: 16px;
+}
+
+.head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.headLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.subtitle {
+  color: $grey-light;
+}
+
+.buttonStar {
+  font-size: 32px;
+  color: $grey-light;
+
+  @media (any-hover: hover) {
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      color: $accent;
+    }
+  }
+}
+
+.player {
+  border: 1px solid $white;
+  border-radius: 12px;
+  padding: 12px;
+  background: $bg-secondary;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid $white;
+  margin-bottom: 24px;
+}
+
+.playerTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.userLevel {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.playerAchievs {
+  display: flex;
+  gap: 8px;
+}
+
+.playerAchiev {
+  width: 52px;
+  height: 49px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $bg;
+  font-size: 33px;
+
+  &.active {
+    background-color: $accent;
+  }
+}
+
+.playerTags {
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.playerTag {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-radius: 8px;
+  padding: 6px 12px;
+  background: $bg;
+  text-align: center;
+  width: 100%;
+}
+
+.playerTagTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.partition {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+
+  &::before,
+  &::after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: $grey-light;
+  }
+}
+
+.logo {
+  width: 88px;
+}
+
+.data {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 12px;
+  padding: 12px;
+  background: $bg-secondary;
+  margin-bottom: 24px;
+}
+
+.dataItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+
+  &:not(:last-child) {
+    border-right: 1px solid $grey-light;
+  }
+}
+
+.dataItemValue {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.game {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  border-radius: 12px;
+  background-color: $bg-secondary;
+  overflow: hidden;
+}
+
+.cardTop {
+  padding: 6px;
+  padding-bottom: 0;
+}
+
+.cardImg {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 8px;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.cardZoom {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  color: $white;
+  right: 4px;
+  bottom: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  font-size: 12px;
+  background-color: $bg-popup;
+
+  @media (any-hover: hover) {
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      color: $accent;
+    }
+  }
+}
+
+.cardAchievs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cardAchiev {
+  width: 100%;
+  height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  background-color: $bg;
+  border-radius: 10px;
+
+  &.active {
+    background-color: $accent;
+  }
+}
+
+.cardWin {
+  width: 100%;
+  background-color: $bg-popup;
+  text-align: center;
+  padding: 6px 0;
+}
+
+.info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.infoMain {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1 1 auto;
+}
+
+.infoAchive {
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 8px;
+  padding: 8px;
+  background-color: $bg-secondary;
+}
+
+.infoAchiveTop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.infoAchiveCup {
+  min-width: 57px;
+  min-height: 43px;
+  width: 57px;
+  height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $accent;
+  border-radius: 8px;
+  font-size: 32px;
+}
+
+.infoAchiveInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.infoAchiveTotal {
+  margin-bottom: 12px;
+}
+
+.infoAchiveReplay {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 37px;
+  padding: 0 12px;
+
+  svg {
+    font-size: 15px;
+  }
+}
+
+.infoReacts {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.infoReactsCount {
+  display: flex;
+  border-radius: 8px;
+  padding: 8px 12px;
+  justify-content: space-between;
+  gap: 9px;
+  background-color: $white;
+}
+
+.infoReact {
+  display: flex;
+  align-items: center;
+
+  svg {
+    font-size: 21px;
+  }
+}
+
+.infoAchives {
+  background-color: $bg-secondary;
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.infoMore {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $white;
+  transition: all 0.3s ease 0s;
+
+  svg {
+    font-size: 15px;
+  }
+
+  @media (any-hover: hover) {
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      color: $accent;
+    }
+  }
+}
+
+.infoSpoller {
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  svg {
+    font-size: 23px;
+    transition: all 0.3s ease 0s;
+  }
+
+  &.active {
+    svg {
+      transform: scaleY(-1);
+    }
+  }
+
+  @media (any-hover: hover) {
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      color: $accent;
+    }
+  }
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+  background-color: $bg-secondary;
+  border-radius: 12px;
+  padding: 12px;
+  transform: scaleY(1);
+  transform-origin: top center;
+}
+
+.optionsGrid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 4px;
+  column-gap: 16px;
+}
+
+:global(.v-enter-active),
+:global(.v-leave-active) {
+  transition: all 0.5s ease;
+}
+
+:global(.v-enter-from),
+:global(.v-leave-to) {
+  transform: scaleY(0);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.button {
+  text-align: center;
+  justify-content: center;
+  min-height: 37px;
+}
+
+.slots {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.games {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(100px, 1fr));
+  gap: 12px;
+}

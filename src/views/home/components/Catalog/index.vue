@@ -6,6 +6,7 @@ import Star from '@/components/icons/StarRun.vue';
 import Search from '@components/ui/Search/index.vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import Game from '@components/ui/Game/index.vue';
+import BetModal from '@components/ui/modals/Bet/index.vue';
 
 // @ts-ignore
 import 'swiper/css';
@@ -107,6 +108,17 @@ const searchResult = computed(() => {
 
   return result;
 });
+
+const betButton = ref<HTMLElement | null>(null);
+const betOpen = ref<boolean>(false);
+
+const openBet = () => {
+  betOpen.value = true;
+};
+
+const closeBet = () => {
+  betOpen.value = false;
+};
 </script>
 
 <template>
@@ -147,6 +159,7 @@ const searchResult = computed(() => {
             :class="styles.slide"
             v-for="game in feed"
             :key="game.title"
+            @click="openBet"
           >
             <Game v-bind="game" />
           </swiper-slide>
@@ -206,4 +219,10 @@ const searchResult = computed(() => {
       </div>
     </div>
   </Container>
+
+  <BetModal
+    @close="closeBet"
+    :show="betOpen"
+    :open-button="betButton"
+  />
 </template>

@@ -7,7 +7,6 @@ import Button from '@components/ui/Button/index.vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import Game from '@components/ui/Game/index.vue';
 import Favorites from '@components/ui/modals/Favorites/index.vue';
-import { useScrollLock } from '@composables/useLockScroll';
 import GameModal from '@components/ui/modals/Game/index.vue';
 
 // @ts-ignore
@@ -38,7 +37,6 @@ const games: GameCardType[] = [
   },
 ];
 
-const lockScroll = useScrollLock();
 const favoritesButton = ref<HTMLElement | null>(
   null
 );
@@ -46,12 +44,10 @@ const favoritesOpen = ref<boolean>(false);
 
 const openFavorites = () => {
   favoritesOpen.value = true;
-  lockScroll.value = true;
 };
 
 const closeFavorites = () => {
   favoritesOpen.value = false;
-  lockScroll.value = false;
 };
 
 const gameButton = ref<HTMLElement | null>(null);
@@ -59,12 +55,10 @@ const gameOpen = ref<boolean>(false);
 
 const openGame = () => {
   gameOpen.value = true;
-  lockScroll.value = true;
 };
 
 const closeGame = () => {
   gameOpen.value = false;
-  lockScroll.value = false;
 };
 </script>
 

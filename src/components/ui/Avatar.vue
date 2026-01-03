@@ -1,26 +1,33 @@
 <script setup lang="ts">
-
-const { size = '28px' } = defineProps<{
-  size?: string,
-  src?: string
-}>()
-
+const { size = '28px', incognito = false } =
+  defineProps<{
+    size?: string;
+    src?: string;
+    incognito?: boolean;
+  }>();
 </script>
 
 <template>
   <div class="avatar">
-    <img :src="src" alt="Avatar">
+    <img
+      :src="
+        incognito ? '/imgs/incognito.png' : src
+      "
+      alt="Avatar"
+    />
   </div>
 </template>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .avatar {
   width: v-bind(size);
   height: v-bind(size);
-  border-radius: 4px;
+  border-radius: calc(0.14 * v-bind(size));
   overflow: hidden;
-  border: 1px solid $accent;
-
+  border: 1px solid
+    v-bind(
+      'incognito ? "transparent" : "var(--accent)"'
+    );
   img {
     width: 100%;
     height: 100%;
