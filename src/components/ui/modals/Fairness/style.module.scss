@@ -1,0 +1,73 @@
+.title {
+  margin-bottom: 32px;
+}
+
+.tabs {
+  margin-bottom: 32px;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.submit {
+  min-height: 37px;
+  text-align: center;
+  justify-content: center;
+}
+
+.note {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  svg {
+    color: $accent;
+    font-size: 15px;
+  }
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hand {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.handName {
+  border-radius: 6px;
+  padding: 4px 8px;
+  align-self: end;
+  background-color: $bg-secondary;
+}
+
+.handDealer {
+  align-self: start;
+}
+
+.slider {
+  width: 100%;
+  overflow: visible;
+}
+.slide {
+  width: 100%;
+  max-width: 74px;
+}
+
+.card {
+  width: 100%;
+  object-fit: contain;
+}
