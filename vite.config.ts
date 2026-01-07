@@ -27,6 +27,7 @@ export default defineConfig(({ mode }) => {
           affiliatesPage: resolve(__dirname, 'affiliates.html'),
           transactionsPage: resolve(__dirname, 'transactions.html'),
           houseShare: resolve(__dirname, 'houseShare.html'),
+          settings: resolve(__dirname, 'settings.html'),
           styles: resolve(__dirname, 'src/entries/styles.js'),
           header: resolve(__dirname, 'src/entries/header.js'),
           banner: resolve(__dirname, 'src/entries/banner.js'),
