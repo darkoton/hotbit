@@ -37,12 +37,16 @@
   &:disabled {
     pointer-events: none;
   }
+
+  &.success {
+    border-color: $green;
+  }
 }
 
 /* Галочка */
 .input {
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     width: calc(var(--size) * 0.25);
@@ -53,12 +57,21 @@
     transform-origin: bottom left;
     transition: 0.2s ease;
   }
+
+  &.success::after {
+    border-color: $white;
+  }
 }
 
 /* Состояние checked */
 .input {
   &:checked {
     border-color: $accent;
+  }
+
+  &.success:checked {
+    border-color: $green;
+    background-color: $green;
   }
 }
 

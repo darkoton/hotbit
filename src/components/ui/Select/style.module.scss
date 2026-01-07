@@ -17,7 +17,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  color: #fff;
+  color: $white;
 }
 
 .button {
@@ -87,4 +87,16 @@
 
 .noteIcon {
   font-size: 16px;
+}
+
+.primary {
+  & .button {
+    background-color: $bg-secondary;
+  }
+}
+
+.secondary {
+  & .button {
+    background-color: $bg;
+  }
 }

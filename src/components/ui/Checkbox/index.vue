@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import styles from './style.module.scss';
 
-defineProps<{
+const { variant = 'primary' } = defineProps<{
   label?: string;
   size?: number;
   checked?: boolean;
   disabled?: boolean;
+  variant?: 'primary' | 'success';
 }>();
 
 const value = defineModel<boolean>();
@@ -15,13 +16,17 @@ const value = defineModel<boolean>();
   <label :class="styles.checkbox">
     <input
       type="checkbox"
-      :class="styles.input"
+      :class="[styles.input, styles[variant]]"
       :style="{
         '--size': (size || 20) + 'px',
       }"
       :checked="value || checked"
       :disabled="disabled"
-      @change="value = ($event.target as HTMLInputElement).checked"
+      @change="
+        value = (
+          $event.target as HTMLInputElement
+        ).checked
+      "
     />
     <span :class="styles.label">
       {{ label }}

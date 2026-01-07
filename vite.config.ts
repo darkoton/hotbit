@@ -48,6 +48,10 @@ export default defineConfig(({ mode }) => {
           houseShareDifficulty: resolve(__dirname, 'src/entries/houseShare/difficulty.js'),
           houseShareClaim: resolve(__dirname, 'src/entries/houseShare/claim.js'),
           houseShareCalc: resolve(__dirname, 'src/entries/houseShare/calc.js'),
+          settingsUser: resolve(__dirname, 'src/entries/settings/user.js'),
+          settingsSecurity: resolve(__dirname, 'src/entries/settings/security.js'),
+          settingsPrivacy: resolve(__dirname, 'src/entries/settings/privacy.js'),
+          settingsLanguage: resolve(__dirname, 'src/entries/settings/language.js'),
         },
         output: {
           entryFileNames: 'js/[name].js',

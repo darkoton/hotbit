@@ -1,0 +1,65 @@
+.body {
+  background-color: $bg-secondary;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.switch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &:not(:first-child) {
+    padding-top: 12px;
+  }
+
+  &:not(:last-child) {
+    padding-bottom: 12px;
+    border-bottom: 1px solid $grey-dark;
+  }
+}
+
+.arrow {
+  color: $grey-light;
+  font-size: 16px;
+  transition: all 0.3s ease 0s;
+}
+
+.auth {
+  @media (any-hover: hover) {
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      &,
+      & svg {
+        color: $accent;
+      }
+    }
+  }
+}
+
+.note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  svg {
+    font-size: 24px;
+    color: $grey-light;
+  }
+}
